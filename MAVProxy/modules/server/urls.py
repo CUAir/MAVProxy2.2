@@ -4,15 +4,15 @@ from flask import redirect
 from flask import request
 import datetime
 import os
-import MAVProxy.mavproxy_logging
+import mavproxy_logging
 import traceback
-from MAVProxy.modules.mavproxy_database import get_db_mod
+from modules.mavproxy_database import get_db_mod
 import logging
 
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.WARNING)
 
-logger = MAVProxy.mavproxy_logging.create_logger("urls")
+logger = mavproxy_logging.create_logger("urls")
 
 mpstate = get_db_mod().mpstate
 
