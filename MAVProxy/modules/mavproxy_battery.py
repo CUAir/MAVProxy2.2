@@ -4,8 +4,8 @@
 import time, math
 from pymavlink import mavutil
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib.mp_settings import MPSetting
+from modules.lib import mp_module
+from modules.lib.mp_settings import MPSetting
 
 class BatteryModule(mp_module.MPModule):
     def __init__(self, mpstate):

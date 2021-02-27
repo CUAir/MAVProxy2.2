@@ -1,0 +1,289 @@
+$primary: #337ab7;
+$danger: #d9534f;
+$warning: #f0ad4e;
+$success: #5cb85c;
+
+$min-small: 768px;
+$min-medium: 992px;
+$min-large: 1200px;
+
+$table-pad-top: 8px;
+
+.table {
+  padding: 0px;
+}
+
+.waypointNotSelected {
+  background-color: rgb(0,0,0);
+}
+
+.waypointSelected {
+  background-color: rgb(255, 255, 255);
+}
+
+.col-xs-12 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.waypointContainer {
+  padding-left: 0px;
+  padding-right: 0px;
+  overflow-y: scroll;
+  height:500px;
+}
+
+.underline {
+  background-color: #BBBBBB;
+  height: 16px;
+  z-index: -1;
+}
+
+.unknown {
+  background-color: $primary;
+}
+.error {
+  background-color: $danger;
+}
+.warning {
+  background-color: $warning;
+}
+.success {
+  background-color: $success;
+}
+
+#navbar {
+  margin: 0px;
+  border: 0px;
+}
+
+.navbar-right.navbar-nav > li {
+  border-color: rgb(255,255,255);
+  border-radius: 1px;
+  @media (min-width: $min-small) {
+    min-width: 11%;
+    max-width: 11%;
+  }
+  text-align: center;
+  cursor: default;
+  font-size: 9px;
+}
+
+.navbar-right.navbar-nav > li.status-bar-half {
+  border-color: rgb(255,255,255);
+  border-radius: 1px;
+  @media (min-width: $min-small) {
+    min-width: 9%;
+    max-width: 9%;
+  }
+  text-align: center;
+  cursor: default;
+  font-size: 9px;
+}
+
+.navbar-nav > li {
+  text-align: center;
+}
+
+.navbar-brand, .navbar-nav > li {
+  cursor: pointer;
+}
+
+#mapFrame {
+  box-shadow: none;
+  min-width: 100%;
+  min-height: 535px;
+}
+
+#planeStatus {
+  min-width: 50%;
+}
+
+#hud {
+  min-height: 520px;
+}
+#hud tr {
+  min-height: 55px;
+}
+#hud td {
+  vertical-align: middle;
+}
+
+.middle-center {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table tbody>tr .middle-center {
+  padding-top: $table-pad-top;
+}
+
+.table tbody>tr .pad-top {
+  padding-top: $table-pad-top;
+}
+
+.table tbody>tr>td.center-checkbox {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table tbody>tr>td.center-text {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.full {
+  width: 100%;
+}
+.half {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-body>.table {
+  width: 50%;
+}
+.modal-body>.table>tbody>tr>td {
+  border-top: 0px;
+}
+
+#waypointControls {
+  .btn {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  tbody>tr>td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+.dropup>.dropdown-menu {
+  width: 100%;
+}
+
+#parameterControls {
+  .btn {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  tbody>tr>td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+#parametersDiv {
+  height: 750px;
+  overflow: auto;
+  @media only screen and (max-width: 992px) {
+    height: 500px;
+  }
+}
+
+.3_4-small {
+  @media only screen and (max-width: 992px) {
+    width: 75%;
+  }
+}
+
+li>.progress {
+  margin-bottom: 0px;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+.button-state {
+  line-height: 22px;
+}
+
+img.leaflet-image-layer.leaflet-zoom-animated {
+  z-index: -1;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+.switch-wrapper {
+  margin-left: 10px;
+  font-weight: normal;
+}
+
+.tuning-nav-button {
+  @media (min-width: $min-small) {
+    padding-top: 80px;
+  }
+}
+
+.fc-button {
+  margin: 20px;
+}
+
+.fc-input {
+  margin: 10px;
+  width: 100px;
+}
+
+.fc-datetime {
+  width: 100px;
+  display: inline;
+}
+
+.flight-notes .fc-input {
+  margin: 10px;
+  width: 665px;
+}
+
+.bootstrap-switch .bootstrap-switch-container .bootstrap-switch-handle-off.bootstrap-switch-default {
+  font-size: 12px;
+}
+
+.interactive-circle {
+  pointer-events: all;
+}
+
+.table.dropdown-table {
+  margin-bottom: 0px;
+}
+
+.table>tbody>tr>td {
+  padding: 4px;
+}

@@ -1,0 +1,144 @@
+{
+  "name": "GCS",
+  "version": "1.0.0",
+  "description": "CUAir Autopilot Ground Control Station",
+  "main": "js/app.js",
+  "watch": {
+    "build": {
+      "patterns": [
+        "js"
+      ],
+      "extensions": "js,jsx"
+    }
+  },
+  "scripts": {
+    "test": "jest",
+    "watch": "npm-watch",
+    "doc": "esdoc -c esdoc.json",
+    "lint": "eslint --cache --quiet js/ && eslint --cache --quiet __tests__/",
+    "gulp": "gulp && ./store_commit.sh",
+    "gulp-prod": "gulp production && ./store_commit.sh",
+    "flow": "flow"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CUAir/MAVProxy.git"
+  },
+  "keywords": [
+    "cuair",
+    "uav",
+    "gcs"
+  ],
+  "author": "CUAir Autopilot Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CUAir/MAVProxy/issues"
+  },
+  "homepage": "https://github.com/CUAir/MAVProxy",
+  "devDependencies": {
+    "babel-eslint": "^7.1.0",
+    "babel-jest": "^16.0.0",
+    "enzyme": "^2.5.1",
+    "esdoc": "^0.4.8",
+    "esdoc-es7-plugin": "0.0.3",
+    "esdoc-flow-plugin": "^1.0.0",
+    "eslint": "^3.5.0",
+    "eslint-plugin-flowtype": "~2.27.0",
+    "eslint-plugin-react": "^6.3.0",
+    "flow-bin": "^0.42.0",
+    "flow-typed": "^2.2.3",
+    "immutable": "^3.8.2",
+    "jest": "^16.0.0",
+    "jest-cli": "^16.0.0",
+    "object-assign": "^4.0.1",
+    "react-addons-test-utils": "^15.3.2",
+    "react-bootstrap-switch": "^15.5.3",
+    "sinon": "^1.17.6"
+  },
+  "dependencies": {
+    "ajv": "^5.5.2",
+    "alertifyjs": "^1.6.0",
+    "autobind-decorator": "^1.3.4",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "babyparse": "^0.4.3",
+    "bootstrap": "^3.3.6",
+    "bootstrap-sass": "^3.3.7",
+    "browserify": "^14.5.0",
+    "browserify-incremental": "^3.1.1",
+    "canvas-gauges": "^2.0.9",
+    "classnames": "^2.2.1",
+    "create-react-class": "^15.6.2",
+    "dateformat": "^3.0.2",
+    "events": "^1.1.0",
+    "flux": "^3.1.0",
+    "font-awesome": "^4.5.0",
+    "geolib": "^2.0.24",
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-string-replace": "^0.4.0",
+    "gulp-uglify": "^2.0.0",
+    "highcharts": "^6.0.5",
+    "jquery": "^3.1.1",
+    "jquery.scrollto": "^2.1.2",
+    "keymaster": "^1.6.2",
+    "keymirror": "^0.1.1",
+    "leaflet": "^1.3.1",
+    "leaflet-curve": "^1.0.0",
+    "leaflet-draw": "^1.0.4",
+    "leaflet-easybutton": "^2.2.0",
+    "leaflet-imageoverlay-rotated": "^0.1.1",
+    "leaflet-plugins": "^3.0.0",
+    "leaflet-rotatedmarker": "^0.2.0",
+    "leaflet.locationfilter": "^0.1.0",
+    "lodash": "^4.16.4",
+    "materialize-css": "^0.100.2",
+    "md5": "^2.2.1",
+    "object-assign": "^4.0.1",
+    "prop-types": "^15.6.0",
+    "rc-slider": "^8.5.0",
+    "react": "^15.3.2",
+    "react-bootstrap-datetimepicker": "^0.0.22",
+    "react-dom": "^15.3.2",
+    "react-immutable-proptypes": "^2.1.0",
+    "react-materialize": "1.0.6",
+    "react-modal-bootstrap": "^1.1.0",
+    "react-redux": "^5.0.6",
+    "react-sortable-hoc": "^0.6.8",
+    "react-virtualized": "^9.17.3",
+    "redux": "^3.7.2",
+    "sweetalert": "^1.1.3",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watch": "^1.0.2"
+  },
+  "jest": {
+    "setupFiles": [
+      ".setup_jest.js"
+    ],
+    "modulePaths": [
+      "."
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "js/**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "node_modules/",
+      "js/app.js"
+    ],
+    "coverageReporters": [
+      "lcov"
+    ],
+    "testRegex": "(/__tests__/.*-test)\\.(js|jsx)$"
+  }
+}

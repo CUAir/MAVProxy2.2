@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 '''window layout command handling'''
 
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 class LayoutModule(mp_module.MPModule):
     def __init__(self, mpstate):

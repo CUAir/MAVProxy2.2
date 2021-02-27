@@ -1,0 +1,32 @@
+Copyright (c) 2015 CUAIR<cuair_mae@cornell.edu>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files with the exception of
+dependency libraries (the "Software"), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons to whom the Software is furnished to do so, subject to the following
+conditions:
+
+The Software shall not be used to compete against any student group from
+Cornell University [Ithaca, NY] without explicit written permission from the
+copyright holder.
+
+The above copyright notice (including the copyright holder information) and
+this permission notice shall be included in all copies or substantial portions 
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+This software makes use of several packages, most of which use an MIT
+License or a GPL License. Those pieces of software have their own licenses,
+which must be followed independent of the CUAir GCS License. If you have any
+questions about which packages were included in making this code, please email
+us (email above). Additionally, package.json contains the names of most of the
+NPM packages that are used on the front-end of the GCS.

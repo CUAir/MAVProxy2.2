@@ -3,10 +3,10 @@
 """
 import os, time, platform
 from pymavlink import mavwp, mavutil
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_util
+from modules.lib import mp_module
 if mp_util.has_wxpython:
-    from MAVProxy.modules.lib.mp_menu import *
+    from modules.lib.mp_menu import *
 
 class FenceModule(mp_module.MPModule):
     def __init__(self, mpstate):

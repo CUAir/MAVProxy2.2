@@ -1,0 +1,6 @@
+[ignore]
+.*/node_modules/*
+
+[options]
+module.system.node.resolve_dirname=.
+esproposal.decorators=ignore

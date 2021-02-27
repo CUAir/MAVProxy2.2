@@ -33,14 +33,14 @@ except ImportError:
 
 from builtins import input
 
-from MAVProxy.modules.lib import textconsole
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import rline
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import dumpstacks
-from MAVProxy.modules.lib import mp_substitute
-from MAVProxy.modules.lib import multiproc
-from MAVProxy.modules.mavproxy_link import preferred_ports
+from modules.lib import textconsole
+from modules.lib import mp_util
+from modules.lib import rline
+from modules.lib import mp_module
+from modules.lib import dumpstacks
+from modules.lib import mp_substitute
+from modules.lib import multiproc
+from modules.mavproxy_link import preferred_ports
 
 # adding all this allows pyinstaller to build a working windows executable
 # note that using --hidden-import does not work for these modules
@@ -229,7 +229,7 @@ class MPState(object):
         self.click_time = None
         self.vehicle_type = None
         self.vehicle_name = None
-        from MAVProxy.modules.lib.mp_settings import MPSettings, MPSetting
+        from modules.lib.mp_settings import MPSettings, MPSetting
         self.settings = MPSettings(
             [ MPSetting('link', int, 1, 'Primary Link', tab='Link', range=(0,4), increment=1),
               MPSetting('streamrate', int, 4, 'Stream rate link1', range=(-1,500), increment=1),
@@ -474,7 +474,7 @@ def generate_kwargs(args):
 
 def load_module(modname, quiet=False, **kwargs):
     '''load a module'''
-    modpaths = ['MAVProxy.modules.mavproxy_%s' % modname, modname]
+    modpaths = ['modules.mavproxy_%s' % modname, modname]
     for (m,pm) in mpstate.modules:
         if m.name == modname and not modname in mpstate.multi_instance:
             if not quiet:

@@ -6,11 +6,11 @@ control MAVLink2 signing
 from pymavlink import mavutil
 import time, struct, math, sys
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_util
+from modules.lib import mp_module
+from modules.lib import mp_util
 
 if mp_util.has_wxpython:
-    from MAVProxy.modules.lib.mp_menu import *
+    from modules.lib.mp_menu import *
 
 class SigningModule(mp_module.MPModule):
 

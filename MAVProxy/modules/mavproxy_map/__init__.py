@@ -8,11 +8,11 @@ June 2012
 import sys, os, math
 import functools
 import time
-from MAVProxy.modules.mavproxy_map import mp_elevation
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import mp_settings
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib.mp_menu import *
+from modules.mavproxy_map import mp_elevation
+from modules.lib import mp_util
+from modules.lib import mp_settings
+from modules.lib import mp_module
+from modules.lib.mp_menu import *
 from pymavlink import mavutil
 
 class MapModule(mp_module.MPModule):

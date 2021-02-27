@@ -11,7 +11,7 @@ import time
 
 import numpy
 
-from MAVProxy.modules.mavproxy_map import srtm
+from modules.mavproxy_map import srtm
 
 class ElevationModel():
     '''Elevation Model. Only SRTM for now'''

@@ -21,8 +21,8 @@ import os
 import zipfile
 import array
 import math
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import multiproc
+from modules.lib import mp_util
+from modules.lib import multiproc
 
 childTileDownload = {}
 childFileListDownload = {}

@@ -3,7 +3,7 @@
 
 import time, os
 
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 from pymavlink import mavutil
 
 # note that the number of bits here is contrained by the float

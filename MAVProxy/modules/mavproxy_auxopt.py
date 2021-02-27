@@ -2,7 +2,7 @@
 '''auxopt command handling'''
 
 import time, os
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 
 aux_options = {

@@ -3,7 +3,7 @@
 
 import time, os
 
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 tune_options = {
     'None':             '0',

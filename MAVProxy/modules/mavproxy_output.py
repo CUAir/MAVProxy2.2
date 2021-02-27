@@ -9,8 +9,8 @@
 from pymavlink import mavutil
 
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_util
+from modules.lib import mp_module
+from modules.lib import mp_util
 
 class OutputModule(mp_module.MPModule):
     def __init__(self, mpstate):

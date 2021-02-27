@@ -6,8 +6,8 @@ Andrew Tridgell
 November 2013
 '''
 
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import multiproc
+from modules.lib import mp_util
+from modules.lib import multiproc
 import platform
 
 class MPMenuGeneric(object):

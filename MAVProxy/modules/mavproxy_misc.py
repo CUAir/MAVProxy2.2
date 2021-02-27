@@ -4,8 +4,8 @@
 import time, math, sys
 from pymavlink import mavutil
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_util
+from modules.lib import mp_module
+from modules.lib import mp_util
 
 
 from os import kill

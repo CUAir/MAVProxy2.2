@@ -3,11 +3,11 @@
 
 import time, os, fnmatch, time, struct, sys
 from pymavlink import mavutil, mavparm
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import multiproc
+from modules.lib import mp_util
+from modules.lib import mp_module
+from modules.lib import multiproc
 if mp_util.has_wxpython:
-    from MAVProxy.modules.lib.mp_menu import *
+    from modules.lib.mp_menu import *
 
 class ParamState:
     '''this class is separated to make it possible to use the parameter

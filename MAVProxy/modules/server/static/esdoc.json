@@ -1,0 +1,10 @@
+{
+  "source": "./js",
+  "destination": "./jsdoc",
+  "plugins": [
+    {"name": "esdoc-flow-plugin"},
+    {"name": "esdoc-es7-plugin"}
+  ],
+  "includes": ["\\.(js|jsx)$"],
+  "access": ["public", "protected", "private"]
+}

@@ -1,0 +1,58 @@
+$bgDefault      : #286090
+$bgHighlight    : #f9f7f6
+$colDefault     : #ffffff
+$colHighlight   : #000000
+$colHover       : #ffffff
+$dropDown       : false
+.navbar-default 
+  background-color: $bgDefault
+  border-color: $bgHighlight
+  .navbar-brand 
+    color: $colDefault
+    &:hover, &:focus 
+      color: $colHover
+  .navbar-text 
+    color: $colDefault
+  .navbar-nav 
+    > li 
+      > a 
+        color: $colDefault
+        &:hover, &:focus 
+          color: $colHover
+      @if $dropDown
+        > .dropdown-menu
+          background-color: $bgDefault
+          > li > a
+            color: $colDefault
+            &:hover, &:focus
+              color: $colHover
+              background-color: $bgHighlight
+          .divider
+            background-color: $bgHighlight
+    > .active 
+      > a, > a:hover, > a:focus 
+        color: $colHighlight
+        background-color: $bgHighlight 
+  .navbar-toggle 
+    border-color: $bgHighlight
+    &:hover, &:focus 
+      background-color: $colHighlight 
+    .icon-bar 
+      background-color: $colDefault
+  .navbar-collapse,
+  .navbar-form 
+    border-color: $colDefault 
+  .navbar-link 
+    color: $colDefault
+    &:hover 
+      color: $colHighlight 
+@media (max-width: 767px) 
+  .navbar-default .navbar-nav .open .dropdown-menu 
+    > li > a 
+      color: $colDefault
+      &:hover, &:focus 
+        color: $colHighlight
+    > .active 
+      > a, > a:hover, > a:focus 
+        color: $colHighlight
+        background-color: $bgHighlight

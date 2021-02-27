@@ -14,8 +14,8 @@ except ImportError:
     # py3
     from io import BytesIO as SIO
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_settings
+from modules.lib import mp_module
+from modules.lib import mp_settings
 
 # opcodes
 OP_None = 0

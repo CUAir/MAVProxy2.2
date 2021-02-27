@@ -3,8 +3,8 @@
 
 import time, os, struct
 from pymavlink import mavutil
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_settings
+from modules.lib import mp_module
+from modules.lib import mp_settings
 
 class RCModule(mp_module.MPModule):
     def __init__(self, mpstate):
