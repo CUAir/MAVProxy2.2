@@ -3,7 +3,8 @@
 # Database module
 # Creates database to access historical data
 # October 2016
-import modules.mavproxy_interop.interop as interop
+# import modules.mavproxy_interop.interop as interop
+from modules.mavproxy_interop import interop
 import mavproxy_logging
 from modules.lib import mp_module
 

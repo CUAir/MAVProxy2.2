@@ -32,7 +32,7 @@ def get_webserver_module():
 
 class WebServerModule(mp_module.MPModule):
     def __init__(self, mpstate):
-        from MAVProxy.pymavlink import mavparm
+        from pymavlink import mavparm
         super(WebServerModule, self).__init__(mpstate, "webserver", "webserver module")
         self.webserver_param = mavparm.MAVParmDict()
         logging.basicConfig(filename='example.log', level=logging.DEBUG)

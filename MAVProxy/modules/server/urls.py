@@ -63,7 +63,7 @@ class Urls(object):
     @staticmethod
     @app.after_request
     def log_request(response):
-        log_path = MAVProxy.mavproxy_logging.get_log_path()
+        log_path = mavproxy_logging.get_log_path()
         log_name = datetime.date.today().strftime("%d-%m-%y") + "_requests.log"
         with open(os.path.join(log_path, log_name), 'a') as log_file:
             log_file.write("{time} | ({status_code}) {source} ==> {path}\n".format(
