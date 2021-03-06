@@ -38,9 +38,8 @@ except:
     ch.setFormatter(formatter)
     logger.addHandler(ch)
 
-
+print("interop1")
 class Interop(mp_module.MPModule):
-
     def __init__(self, mpstate):
         super(Interop, self).__init__(mpstate, "interop", "AUVSI interoperability module")
         self.add_command('interop_obst', self._print_obstacles, "show interop obstacle data")
@@ -384,7 +383,7 @@ def get_instance():
 
 def init(mpstate):
     '''initialize module'''
+    print("here")
     global instance
     instance = Interop(mpstate)
     return instance
-    

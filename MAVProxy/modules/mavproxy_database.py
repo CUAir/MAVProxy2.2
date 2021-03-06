@@ -3,7 +3,7 @@
 # Database module
 # Creates database to access historical data
 # October 2016
-# import modules.mavproxy_interop.interop as interop
+
 from modules.mavproxy_interop import interop
 import mavproxy_logging
 from modules.lib import mp_module
@@ -94,7 +94,7 @@ class DatabaseModule(mp_module.MPModule):
 
         self.mode = "MAV"
         self.mode2num = {"UNKNOWN": -1, "MAV": -1, "MANUAL": 0, "CIRCLE": 1, "STABILIZE": 2, "TRAINING": 3, "ACRO": 4, "FBWA": 5, "FBWB": 6, "CRUISE": 7, "AUTOTUNE": 8, "AUTO": 10, "TL": 11, "LOITER": 12, "AVOID_ADSB": 14, "GUIDED": 15, "QSTABILIZE": 17, "QHOVER": 18, "QLOITER": 19, "QLAND": 20, "RTL" : 21, "INITIALISING" : 22}
-        self.num2mode = {n: mode for mode, n in self.mode2num.iteritems()}
+        self.num2mode = {n: mode for mode, n in self.mode2num.items()}
         self.num2mode[-1] = "MAV"
 
         self.SIGNAL = namedtuple("Signal", ['time', 'signal_strength'])

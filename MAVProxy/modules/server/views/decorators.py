@@ -5,7 +5,7 @@ import jsonschema
 from functools import wraps
 from flask import request
 
-import MAVProxy.modules.server.views.schemas as schemas
+import modules.server.views.schemas as schemas
 
 lastRequest = 0
 CONCURENT_REQUEST_SPEED = 0.5  # seconds

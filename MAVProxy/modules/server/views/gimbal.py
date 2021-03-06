@@ -1,12 +1,12 @@
-from MAVProxy.modules.server.urls import app
-from MAVProxy.modules.mavproxy_gimbal import get_gimbal_mod
+from modules.server.urls import app
+from modules.mavproxy_gimbal import get_gimbal_mod
 import json
 from flask import request
-import MAVProxy.modules.server.views.decorators as decs
+import modules.server.views.decorators as decs
 
-import MAVProxy.mavproxy_logging
+import mavproxy_logging
 
-logger = MAVProxy.mavproxy_logging.create_logger("gimbal")
+logger = mavproxy_logging.create_logger("gimbal")
 
 # Can anyone think of a cleaner way to do this?
 mpstate = get_gimbal_mod().mpstate

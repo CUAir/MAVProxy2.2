@@ -6,14 +6,14 @@ January 2015
 '''
 
 import sys, os, time
-from modules.lib import mp_module
-from modules.lib import mp_util
-from modules.mavproxy_map import mp_slipmap
+from MAVProxy.modules.lib import mp_module
+from MAVProxy.modules.lib import mp_util
+from MAVProxy.modules.mavproxy_map import mp_slipmap
 from pymavlink import mavutil
 from pymavlink.rotmat import Vector3, Matrix3, Plane, Line
 from math import radians
 if mp_util.has_wxpython:
-    from modules.lib.mp_menu import *
+    from MAVProxy.modules.lib.mp_menu import *
 
 class GimbalModule(mp_module.MPModule):
     def __init__(self, mpstate):

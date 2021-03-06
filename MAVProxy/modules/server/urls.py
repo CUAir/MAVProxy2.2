@@ -19,21 +19,21 @@ mpstate = get_db_mod().mpstate
 # these statements must be done BEFORE url imports
 app = Flask(__name__)
 
-import views.status
-import views.gimbal
+from .views import status
+from .views import gimbal
 if not mpstate.airapi:
-    import views.interop_api
-    import views.waypoints
-    import views.parameters
-    import views.geofences
-    import views.extras
-    import views.calibration
-    import views.distributed
-    import views.sda
-    import views.coverage
-    import views.spot_coverage
-    import views.path_planning
-    import views.simulated_coverage
+    from .views import interop_api
+    from .views import waypoints
+    from .views import parameters
+    from .views import geofences
+    from .views import extras
+    from .views import calibration
+    from .views import distributed
+    from .views import sda
+    from .views import coverage
+    from .views import spot_coverage
+    from .views import path_planning
+    from .views import simulated_coverage
 
 class Urls(object):
 

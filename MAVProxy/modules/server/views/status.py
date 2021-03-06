@@ -1,21 +1,21 @@
-from MAVProxy.modules.server.urls import app
-from MAVProxy.modules.server.data import Data
+from modules.server.urls import app
+from modules.server.data import Data
 import json
 import time
 import traceback
 import re
 
 from flask import request
-from views_utils import json_serial
-import MAVProxy.modules.server.views.decorators as decs
+from .views_utils import json_serial
+import modules.server.views.decorators as decs
 
-from MAVProxy.modules.mavproxy_database import get_db_mod
-from MAVProxy.modules.mavproxy_mission import get_mission_mod
-import MAVProxy.modules.server.views.decorators as decs
-from MAVProxy.modules.mavproxy_plane_prediction.plane_prediction import get_sda_plane_pred_mod
-import MAVProxy.mavproxy_logging
+from modules.mavproxy_database import get_db_mod
+from modules.mavproxy_mission import get_mission_mod
+import modules.server.views.decorators as decs
+from modules.mavproxy_plane_prediction.plane_prediction import get_sda_plane_pred_mod
+import mavproxy_logging
 
-logger = MAVProxy.mavproxy_logging.create_logger("status")
+logger = mavproxy_logging.create_logger("status")
 
 
 # Can anyone think of a cleaner way to do this?
@@ -69,7 +69,7 @@ def mav_info(tm=None):
         return get_db_mod().get_status_text()['info_text']
     except Exception as e:
         traceback.print_exc()
-        print str(e)
+        print (str(e))
 
 
 def mav_warning(tm=None):

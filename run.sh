@@ -82,7 +82,7 @@ done
 
 # Startup mysql database
 docker run -itd --rm --name mysql_container --network=host -v mysql-data:/var/lib/mysql cuairautopilot/private_repo:mysql_image
-
+# docker run -itd --rm --name mysql_container --network=my-network -v mysql-data:/var/lib/mysql cuairautopilot/private_repo:mysql_image
 # Look for the device (radio or microusb cable) that a pixhawk might be connected to
 if [[ "$DEVICE" == "" ]] ; then
     if [[ "$MACHINE" == "Mac" ]] ; then

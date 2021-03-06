@@ -76,6 +76,7 @@ class MPStatus(object):
     '''hold status information about the mavproxy'''
     def __init__(self):
         self.gps	 = None
+        self.airapi = False
         self.msgs = {}
         self.msg_count = {}
         self.counters = {'MasterIn' : [], 'MasterOut' : 0, 'FGearIn' : 0, 'FGearOut' : 0, 'Slave' : 0}
@@ -1237,9 +1238,14 @@ if __name__ == '__main__':
     parser.add_option("--profile", action='store_true', help="run the Yappi python profiler")
     parser.add_option("--state-basedir", default=None, help="base directory for logs and aircraft directories")
     parser.add_option("--version", action='store_true', help="version information")
-    parser.add_option("--default-modules", default="log,signing,wp,rally,fence,ftp,param,relay,tuneopt,arm,mode,calibration,rc,auxopt,misc,cmdlong,battery,terrain,output,adsb,layout,database,webserver", help='default module list')
+    parser.add_option("--default-modules", default="log,signing,wp,rally,fence,ftp,param,relay,tuneopt,arm,mode,calibration,rc,auxopt,misc,cmdlong,battery,terrain,output,adsb,layout,interop,database,webserver", help='default module list')
+
+    parser.add_option("--airapi", action='store_true', default=False, help="Activate MAVProxy in AirAPI mode")
 
     (opts, args) = parser.parse_args()
+    if opts.airapi:
+        opts.default_modules = "log,signing,wp,rally,fence,relay,tuneopt,arm,mode,calibration,rc,auxopt,misc,cmdlong,battery,terrain,output,database,webserver"
+    
     if len(args) != 0:
           print("ERROR: mavproxy takes no position arguments; got (%s)" % str(args))
           sys.exit(1)
@@ -1271,6 +1277,7 @@ if __name__ == '__main__':
 
     # global mavproxy state
     mpstate = MPState()
+    mpstate.airapi = opts.airapi
     mpstate.status.exit = False
     mpstate.command_map = command_map
     mpstate.continue_mode = opts.continue_mode
