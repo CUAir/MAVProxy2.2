@@ -4,9 +4,9 @@ send NTRIP data to flight controller
 
 import time
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import ntrip
-from MAVProxy.modules.lib import mp_settings
+from modules.lib import mp_module
+from modules.lib import ntrip
+from modules.lib import mp_settings
 
 
 class NtripModule(mp_module.MPModule):

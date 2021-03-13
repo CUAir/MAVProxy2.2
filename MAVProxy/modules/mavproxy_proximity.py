@@ -16,11 +16,11 @@ from pymavlink import mavutil
 import errno
 import time
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import mp_settings
+from modules.lib import mp_module
+from modules.lib import mp_util
+from modules.lib import mp_settings
 
-from MAVProxy.modules.mavproxy_map import mp_slipmap
+from modules.mavproxy_map import mp_slipmap
 
 class proximity(mp_module.MPModule):
     def __init__(self, mpstate, multi_vehicle=True):

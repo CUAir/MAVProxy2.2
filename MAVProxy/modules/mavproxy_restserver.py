@@ -13,7 +13,7 @@ from threading import Thread
 
 from flask import Flask
 from werkzeug.serving import make_server
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 def mavlink_to_json(msg):
     '''Translate mavlink python messages in json string'''

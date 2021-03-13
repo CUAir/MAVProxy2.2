@@ -7,9 +7,9 @@ This listens for SDPS on UDP and translates to ADSB_VEHICLE messages
 import pickle
 from math import *
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_settings
-from MAVProxy.modules.lib import mp_util
+from modules.lib import mp_module
+from modules.lib import mp_settings
+from modules.lib import mp_util
 from pymavlink import mavutil
 
 import asterix, socket, time, os, struct

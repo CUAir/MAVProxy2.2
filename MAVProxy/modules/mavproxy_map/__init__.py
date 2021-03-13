@@ -61,7 +61,7 @@ class MapModule(mp_module.MPModule):
         if 'MAP_SERVICE' in os.environ:
             service = os.environ['MAP_SERVICE']
         import platform
-        from MAVProxy.modules.mavproxy_map import mp_slipmap
+        from modules.mavproxy_map import mp_slipmap
         title = "Map"
         if self.instance > 1:
             title += str(self.instance)
@@ -116,13 +116,13 @@ class MapModule(mp_module.MPModule):
 
     def add_menu(self, menu):
         '''add to the default popup menu'''
-        from MAVProxy.modules.mavproxy_map import mp_slipmap
+        from modules.mavproxy_map import mp_slipmap
         self.default_popup.add(menu)
         self.map.add_object(mp_slipmap.SlipDefaultPopup(self.default_popup, combine=True))
 
     def remove_menu(self, menu):
         '''add to the default popup menu'''
-        from MAVProxy.modules.mavproxy_map import mp_slipmap
+        from modules.mavproxy_map import mp_slipmap
         self.default_popup.remove(menu)
         self.map.add_object(mp_slipmap.SlipDefaultPopup(self.default_popup, combine=True))
 
@@ -143,7 +143,7 @@ class MapModule(mp_module.MPModule):
 
     def cmd_map(self, args):
         '''map commands'''
-        from MAVProxy.modules.mavproxy_map import mp_slipmap
+        from modules.mavproxy_map import mp_slipmap
         if len(args) < 1:
             print("usage: map <icon|set>")
         elif args[0] == "icon":
@@ -227,7 +227,7 @@ class MapModule(mp_module.MPModule):
 
     def display_waypoints(self):
         '''display the waypoints'''
-        from MAVProxy.modules.mavproxy_map import mp_slipmap
+        from modules.mavproxy_map import mp_slipmap
         self.mission_list = self.module('wp').wploader.view_list()
         polygons = self.module('wp').wploader.polygon_list()
         self.map.add_object(mp_slipmap.SlipClearLayer('Mission'))
@@ -275,7 +275,7 @@ class MapModule(mp_module.MPModule):
 
     def display_fence(self):
         '''display the fence'''
-        from MAVProxy.modules.mavproxy_map import mp_slipmap
+        from modules.mavproxy_map import mp_slipmap
         self.fence_change_time = self.module('fence').fenceloader.last_change
         points = self.module('fence').fenceloader.polygon()
         self.map.add_object(mp_slipmap.SlipClearLayer('Fence'))
@@ -462,7 +462,7 @@ class MapModule(mp_module.MPModule):
 
     def map_callback(self, obj):
         '''called when an event happens on the slipmap'''
-        from MAVProxy.modules.mavproxy_map import mp_slipmap
+        from modules.mavproxy_map import mp_slipmap
         if isinstance(obj, mp_slipmap.SlipMenuEvent):
             self.handle_menu_event(obj)
             return
@@ -532,7 +532,7 @@ class MapModule(mp_module.MPModule):
 
     def create_vehicle_icon(self, name, colour, follow=False, vehicle_type=None):
         '''add a vehicle to the map'''
-        from MAVProxy.modules.mavproxy_map import mp_slipmap
+        from modules.mavproxy_map import mp_slipmap
         if vehicle_type is None:
             vehicle_type = self.vehicle_type_name
         if name in self.have_vehicle and self.have_vehicle[name] == vehicle_type:
@@ -544,7 +544,7 @@ class MapModule(mp_module.MPModule):
 
     def drawing_update(self):
         '''update line drawing'''
-        from MAVProxy.modules.mavproxy_map import mp_slipmap
+        from modules.mavproxy_map import mp_slipmap
         if self.draw_callback is None:
             return
         self.draw_line.append(self.mpstate.click_location)
@@ -554,7 +554,7 @@ class MapModule(mp_module.MPModule):
 
     def drawing_end(self):
         '''end line drawing'''
-        from MAVProxy.modules.mavproxy_map import mp_slipmap
+        from modules.mavproxy_map import mp_slipmap
         if self.draw_callback is None:
             return
         self.draw_callback(self.draw_line)
@@ -564,7 +564,7 @@ class MapModule(mp_module.MPModule):
 
     def draw_lines(self, callback):
         '''draw a series of connected lines on the map, calling callback when done'''
-        from MAVProxy.modules.mavproxy_map import mp_slipmap
+        from modules.mavproxy_map import mp_slipmap
         self.draw_callback = callback
         self.draw_line = []
         self.map.add_object(mp_slipmap.SlipDefaultPopup(None))
@@ -671,7 +671,7 @@ class MapModule(mp_module.MPModule):
 
     def mavlink_packet(self, m):
         '''handle an incoming mavlink packet'''
-        from MAVProxy.modules.mavproxy_map import mp_slipmap
+        from modules.mavproxy_map import mp_slipmap
         mtype = m.get_type()
         sysid = m.get_srcSystem()
 

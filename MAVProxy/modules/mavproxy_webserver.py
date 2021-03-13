@@ -39,7 +39,7 @@ class WebServerModule(mp_module.MPModule):
 
         if not mpstate.airapi:
             # Make sure we have the waypoints loaded
-            self.mpstate.public_modules['wp'].wp_load()
+            self.mpstate.public_modules['wp'].fetch()
 
         # put server in a dameon so it dies nicely
         self.server = Urls()

@@ -1,14 +1,14 @@
-import MAVProxy.mavproxy_logging
+import mavproxy_logging
 
-from MAVProxy.modules.server.urls import app
-from MAVProxy.modules.server.data import Data
-import MAVProxy.modules.server.views.decorators as decs
-from MAVProxy.modules.mavproxy_spot_coverage import get_spot_coverage_mod
-import MAVProxy.modules.server.views.schemas as schemas
+from modules.server.urls import app
+from modules.server.data import Data
+import modules.server.views.decorators as decs
+from modules.mavproxy_spot_coverage import get_spot_coverage_mod
+import modules.server.views.schemas as schemas
 from flask import request
 import json
 
-logger = MAVProxy.mavproxy_logging.create_logger("spot_coverage")
+logger = mavproxy_logging.create_logger("spot_coverage")
 
 
 @app.route('/ground/api/v3/coverage/search_grid', methods=['GET'])

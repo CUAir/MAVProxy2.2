@@ -8,7 +8,7 @@ Simply display message rates
 
 import time
 
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 
 class messagerate(mp_module.MPModule):

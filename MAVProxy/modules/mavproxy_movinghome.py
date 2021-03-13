@@ -20,9 +20,9 @@ try:
     import pynmea2
 except ImportError as e:
     print("\n!!! missing package !!! do: 'sudo apt install python-nmea2' -movinghome will not work without it")
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import mp_settings
+from modules.lib import mp_module
+from modules.lib import mp_util
+from modules.lib import mp_settings
 
 
 class movinghome(mp_module.MPModule):

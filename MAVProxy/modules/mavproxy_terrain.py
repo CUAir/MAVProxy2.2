@@ -1,5 +1,5 @@
 """
-  MAVProxy terrain handling module
+  terrain handling module
 """
 
 import time

@@ -1,10 +1,10 @@
 import json
-import MAVProxy.mavproxy_logging
-from MAVProxy.modules.server.urls import app
-import MAVProxy.modules.server.views.decorators as decs
-from MAVProxy.modules.mavproxy_simcoverage import get_simcoverage_mod
+import mavproxy_logging
+from modules.server.urls import app
+import modules.server.views.decorators as decs
+from modules.mavproxy_simcoverage import get_simcoverage_mod
 
-logger = MAVProxy.mavproxy_logging.create_logger("Simulated Coverage")
+logger = mavproxy_logging.create_logger("Simulated Coverage")
 
 @app.route('/ground/api/v3/simcoverage', methods=['GET'])
 @decs.trace_errors(logger, 'Simulating Coverage')

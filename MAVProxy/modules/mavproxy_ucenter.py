@@ -3,8 +3,8 @@ setup a listening TCP socket for forwarding u-center connections to a GPS
 via MAVLink serial-control
 '''
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_settings
+from modules.lib import mp_module
+from modules.lib import mp_settings
 from pymavlink import mavutil
 import socket
 import time

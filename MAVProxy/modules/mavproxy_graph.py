@@ -1,5 +1,5 @@
 """
-  MAVProxy realtime graphing module
+  realtime graphing module
 
   uses lib/live_graph.py for display
 """
@@ -7,9 +7,9 @@
 from pymavlink import mavutil
 import re, os, sys
 
-from MAVProxy.modules.lib import live_graph
+from modules.lib import live_graph
 
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 class GraphModule(mp_module.MPModule):
     def __init__(self, mpstate):

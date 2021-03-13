@@ -9,7 +9,7 @@ This interfaces to Tools/autotest/jsbsim/runsim.py to run the JSBSim flight simu
 
 import sys, os, time, socket, errno, struct, math
 from math import degrees, radians
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 from pymavlink import mavutil
 
 class HILModule(mp_module.MPModule):

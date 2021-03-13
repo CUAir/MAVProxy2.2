@@ -1,5 +1,5 @@
 """
-    MAVProxy geofence module
+    geofence module
 """
 import os, time, platform
 from pymavlink import mavwp, mavutil

@@ -4,7 +4,7 @@
 import time, os, sys
 from pymavlink import mavutil
 
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 class DeviceOpModule(mp_module.MPModule):
     def __init__(self, mpstate):

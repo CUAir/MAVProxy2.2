@@ -5,7 +5,7 @@ support for a GCS attached DGPS system
 
 import socket, errno
 from pymavlink import mavutil
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 class DGPSModule(mp_module.MPModule):
     def __init__(self, mpstate):

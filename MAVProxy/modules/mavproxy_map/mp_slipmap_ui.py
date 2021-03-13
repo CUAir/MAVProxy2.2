@@ -1,42 +1,42 @@
 import functools
 import math
-from MAVProxy.modules.mavproxy_map import mp_elevation
+from modules.mavproxy_map import mp_elevation
 import numpy as np
 import os
 import time
 
 from ..lib.wx_loader import wx
 
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipBrightness
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipCenter
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipClearLayer
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipDefaultPopup
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipFlightModeLegend
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipGrid
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipHideObject
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipIcon
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipInformation
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipKeyEvent
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipMenuEvent
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipMouseEvent
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipObject
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipObjectSelection
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipPosition
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipRemoveObject
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipThumbnail
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipZoom
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipFollow
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import SlipFollowObject
+from modules.mavproxy_map.mp_slipmap_util import SlipBrightness
+from modules.mavproxy_map.mp_slipmap_util import SlipCenter
+from modules.mavproxy_map.mp_slipmap_util import SlipClearLayer
+from modules.mavproxy_map.mp_slipmap_util import SlipDefaultPopup
+from modules.mavproxy_map.mp_slipmap_util import SlipFlightModeLegend
+from modules.mavproxy_map.mp_slipmap_util import SlipGrid
+from modules.mavproxy_map.mp_slipmap_util import SlipHideObject
+from modules.mavproxy_map.mp_slipmap_util import SlipIcon
+from modules.mavproxy_map.mp_slipmap_util import SlipInformation
+from modules.mavproxy_map.mp_slipmap_util import SlipKeyEvent
+from modules.mavproxy_map.mp_slipmap_util import SlipMenuEvent
+from modules.mavproxy_map.mp_slipmap_util import SlipMouseEvent
+from modules.mavproxy_map.mp_slipmap_util import SlipObject
+from modules.mavproxy_map.mp_slipmap_util import SlipObjectSelection
+from modules.mavproxy_map.mp_slipmap_util import SlipPosition
+from modules.mavproxy_map.mp_slipmap_util import SlipRemoveObject
+from modules.mavproxy_map.mp_slipmap_util import SlipThumbnail
+from modules.mavproxy_map.mp_slipmap_util import SlipZoom
+from modules.mavproxy_map.mp_slipmap_util import SlipFollow
+from modules.mavproxy_map.mp_slipmap_util import SlipFollowObject
 
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import win_layout
+from modules.lib import mp_util
+from modules.lib import win_layout
 
-from MAVProxy.modules.lib.mp_menu import MPMenuCheckbox
-from MAVProxy.modules.lib.mp_menu import MPMenuItem
-from MAVProxy.modules.lib.mp_menu import MPMenuRadio
-from MAVProxy.modules.lib.mp_menu import MPMenuSeparator
-from MAVProxy.modules.lib.mp_menu import MPMenuSubMenu
-from MAVProxy.modules.lib.mp_menu import MPMenuTop
+from modules.lib.mp_menu import MPMenuCheckbox
+from modules.lib.mp_menu import MPMenuItem
+from modules.lib.mp_menu import MPMenuRadio
+from modules.lib.mp_menu import MPMenuSeparator
+from modules.lib.mp_menu import MPMenuSubMenu
+from modules.lib.mp_menu import MPMenuTop
 
 
 class MPSlipMapFrame(wx.Frame):
@@ -312,7 +312,7 @@ class MPSlipMapPanel(wx.Panel):
     """ The image panel
     """
     def __init__(self, parent, state):
-        from MAVProxy.modules.lib import mp_widgets
+        from modules.lib import mp_widgets
 
         wx.Panel.__init__(self, parent)
         self.state = state

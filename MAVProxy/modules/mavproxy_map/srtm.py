@@ -78,7 +78,7 @@ class SRTMDownloader():
                     cachedir = os.path.join(os.environ['LOCALAPPDATA'], '.tilecache/SRTM')
                 else:
                     import tempfile
-                    cachedir = os.path.join(tempfile.gettempdir(), 'MAVProxySRTM')
+                    cachedir = os.path.join(tempfile.gettempdir(), 'RTM')
 
         self.debug = debug
         self.offline = offline

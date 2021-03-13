@@ -8,7 +8,7 @@ def enum(**enums):
 
 TestState = enum(INIT=1, FBWA=2, AUTO=3)
 
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 class TestModule(mp_module.MPModule):
     def __init__(self, mpstate):

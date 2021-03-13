@@ -1,17 +1,17 @@
-from MAVProxy.modules.server.urls import app
-from MAVProxy.modules.mavproxy_calibration import get_cali_mod
-from MAVProxy.modules.mavproxy_rcsetup import get_rcsetup_mod
-import MAVProxy.modules.server.views.decorators as decs
-from MAVProxy.modules.server.data import Data
+from modules.server.urls import app
+from modules.mavproxy_calibration import get_cali_mod
+from modules.mavproxy_rcsetup import get_rcsetup_mod
+import modules.server.views.decorators as decs
+from modules.server.data import Data
 from flask import request
 from flask import jsonify
 import sys
 import os
 import traceback
 
-import MAVProxy.mavproxy_logging
+import mavproxy_logging
 
-logger = MAVProxy.mavproxy_logging.create_logger("calibration")
+logger = mavproxy_logging.create_logger("calibration")
 
 @app.route('/ground/api/v3/cali/accel', methods=['POST'])
 @decs.trace_errors(logger, 'Failed to start accelerometer calibration')

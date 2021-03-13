@@ -2,7 +2,7 @@
 '''tune command handling'''
 
 import time, os
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 class SpeechModule(mp_module.MPModule):
     def __init__(self, mpstate):
@@ -60,7 +60,7 @@ class SpeechModule(mp_module.MPModule):
         '''speak some text'''
         ''' http://cvs.freebsoft.org/doc/speechd/ssip.html see 4.3.1 for priorities'''
         import speechd
-        self.speech = speechd.SSIPClient('MAVProxy%u' % os.getpid())
+        self.speech = speechd.SSIPClient('u' % os.getpid())
         self.speech.set_output_module('festival')
         self.speech.set_language('en')
         self.speech.set_priority(priority)

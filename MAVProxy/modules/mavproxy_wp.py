@@ -401,7 +401,7 @@ class WPModule(mp_module.MPModule):
         '''callback from drawing waypoints'''
         if len(points) < 3:
             return
-        from MAVProxy.modules.lib import mp_util
+        from modules.lib import mp_util
         home = self.get_home()
         if home is None:
             print("Need home location for draw - please run gethome")
@@ -1005,6 +1005,19 @@ class WPModule(mp_module.MPModule):
             self.wp_op = "fetch"
         self.master.waypoint_request_list_send()
 
+instance = None
+def get_wp_mod():
+    global instance
+    if (instance is None):
+        raise Exception("WPModule Not Initialized")
+    return instance
+
 def init(mpstate):
     '''initialise module'''
-    return WPModule(mpstate)
+    global instance
+    instance = WPModule(mpstate)
+    return instance
+
+# def init(mpstate):
+#     '''initialise module'''
+#     return WPModule(mpstate)

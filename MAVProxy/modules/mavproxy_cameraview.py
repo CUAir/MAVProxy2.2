@@ -6,10 +6,10 @@ Feb 2014
 '''
 
 import math
-from MAVProxy.modules.mavproxy_map import mp_slipmap
-from MAVProxy.modules.mavproxy_map import mp_elevation
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import mp_settings
+from modules.mavproxy_map import mp_slipmap
+from modules.mavproxy_map import mp_elevation
+from modules.lib import mp_util
+from modules.lib import mp_settings
 from cuav.lib import cuav_util
 from cuav.camera.cam_params import CameraParams
 
@@ -18,7 +18,7 @@ scale_latlon = 1e-7
 scale_hdg = 1e-2
 scale_relative_alt = 1e-3
 
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 class CameraViewModule(mp_module.MPModule):
     def __init__(self, mpstate):

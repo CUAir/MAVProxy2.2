@@ -9,8 +9,8 @@ Send mavlink SYSTEM_TIME messages via mavlink
 
 import time
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_settings
+from modules.lib import mp_module
+from modules.lib import mp_settings
 
 
 class system_time(mp_module.MPModule):

@@ -15,7 +15,7 @@ delta. As a result it is now possible to know exactly when a
 "GLOBAL_POSITION_INT" was created in GCS time.
 """
 
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 
 class TimeSyncModule(mp_module.MPModule):

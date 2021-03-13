@@ -7,8 +7,8 @@ Peter Barker, September 2017
 
 import time
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_settings
+from modules.lib import mp_module
+from modules.lib import mp_settings
 
 
 class message(mp_module.MPModule):

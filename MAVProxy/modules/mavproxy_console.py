@@ -1,19 +1,19 @@
 """
-  MAVProxy console
+  console
 
   uses lib/console.py for display
 """
 
 import os, sys, math, time, re
 
-from MAVProxy.modules.lib import wxconsole
-from MAVProxy.modules.lib import textconsole
-from MAVProxy.modules.mavproxy_map import mp_elevation
+from modules.lib import wxconsole
+from modules.lib import textconsole
+from modules.mavproxy_map import mp_elevation
 from pymavlink import mavutil
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import wxsettings
-from MAVProxy.modules.lib.mp_menu import *
+from modules.lib import mp_util
+from modules.lib import mp_module
+from modules.lib import wxsettings
+from modules.lib.mp_menu import *
 
 class DisplayItem:
     def __init__(self, fmt, expression, row):
@@ -83,7 +83,7 @@ class ConsoleModule(mp_module.MPModule):
         # create the main menu
         if mp_util.has_wxpython:
             self.menu = MPMenuTop([])
-            self.add_menu(MPMenuSubMenu('MAVProxy',
+            self.add_menu(MPMenuSubMenu(',
                                         items=[MPMenuItem('Settings', 'Settings', 'menuSettings'),
                                                MPMenuItem('Map', 'Load Map', '# module load map')]))
             self.vehicle_menu = MPMenuSubMenu('Vehicle', items=[])

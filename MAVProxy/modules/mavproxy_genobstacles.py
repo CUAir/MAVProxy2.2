@@ -5,12 +5,12 @@ generate dynamic obstacles for OBC 2018
 import time, pickle
 from math import *
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_settings
-from MAVProxy.modules.lib import mp_util
+from modules.lib import mp_module
+from modules.lib import mp_settings
+from modules.lib import mp_util
 from pymavlink import mavutil
 if mp_util.has_wxpython:
-    from MAVProxy.modules.lib.mp_menu import *
+    from modules.lib.mp_menu import *
 
 import socket, time, random, math
 
@@ -24,7 +24,7 @@ DNFZ_types = {
     'BirdOfPrey' : 40000
 }
 
-from MAVProxy.modules.mavproxy_map import mp_elevation
+from modules.mavproxy_map import mp_elevation
 
 ElevationMap = mp_elevation.ElevationModel()
 

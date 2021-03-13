@@ -1,12 +1,12 @@
 """
-  MAVProxy console
+  console
 
   uses lib/console.py for display
 """
 
-from MAVProxy.modules.lib import wxhorizon
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib.wxhorizon_util import Attitude, VFR_HUD, Global_Position_INT, BatteryInfo, FlightState, WaypointInfo, FPS
+from modules.lib import wxhorizon
+from modules.lib import mp_module
+from modules.lib.wxhorizon_util import Attitude, VFR_HUD, Global_Position_INT, BatteryInfo, FlightState, WaypointInfo, FPS
 
 import time
 
@@ -102,7 +102,7 @@ class HorizonModule(mp_module.MPModule):
     
     def idle_task(self):
         if self.mpstate.horizonIndicator.close_event.wait(0.001):
-            self.needs_unloading = True   # tell MAVProxy to unload this module
+            self.needs_unloading = True   # tell to unload this module
     
         if (time.time() - self.lastSend) > self.sendDelay:
             self.mpstate.horizonIndicator.parent_pipe_send.send(self.msgList)

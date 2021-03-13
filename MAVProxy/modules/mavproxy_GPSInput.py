@@ -6,7 +6,7 @@ support for GPS_INPUT message
 import socket, errno
 import json
 from pymavlink import mavutil
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 class GPSInputModule(mp_module.MPModule):
 

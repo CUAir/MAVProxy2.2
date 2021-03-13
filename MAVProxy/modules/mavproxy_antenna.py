@@ -7,7 +7,7 @@ June 2012
 
 import sys, os, time
 from cuav.lib import cuav_util
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 class AntennaModule(mp_module.MPModule):
     def __init__(self, mpstate):

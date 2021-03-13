@@ -1,21 +1,21 @@
 import json
 
-import MAVProxy.mavproxy_logging
-import MAVProxy.modules.server.views.decorators as decs
+import mavproxy_logging
+import modules.server.views.decorators as decs
 
 from pymavlink.mavutil import mavlink
-from MAVProxy.modules.server.data import Data
-from MAVProxy.modules.server.urls import app
-from MAVProxy.modules.mavproxy_wp import get_wp_mod
-from MAVProxy.modules.mavproxy_database import get_db_mod
-from MAVProxy.modules.mavproxy_sda.sda_engine import get_sda_mod
-from MAVProxy.modules.mavproxy_mission import get_mission_mod
-import MAVProxy.modules.server.views.schemas as schemas
+from modules.server.data import Data
+from modules.server.urls import app
+from modules.mavproxy_wp import get_wp_mod
+from modules.mavproxy_database import get_db_mod
+# from modules.mavproxy_sda.sda_engine import get_sda_mod
+from modules.mavproxy_mission import get_mission_mod
+import modules.server.views.schemas as schemas
 from flask import request
 
 SECONDS_2_MILLSECONDS = 1 / 1000.0
 
-logger = MAVProxy.mavproxy_logging.create_logger("waypoint_api")
+logger = mavproxy_logging.create_logger("waypoint_api")
 
 
 # Get waypoints.
@@ -63,7 +63,7 @@ def wp_add(wp_or_wplist):
         get_wp_mod().wp_send_list(wp_list)
         return 'true', 200
     wp = wp_or_wplist
-    print "wpl length: " + str(len(wp))
+    print ("wpl length: " + str(len(wp)))
     get_wp_mod().wp_insert(wp, wp['index'])
     return 'true', 200
 
@@ -92,13 +92,13 @@ def wp_delete_single(wpnum):
 
 
 # Get an SDA waypoint between start_index and end_index.
-@app.route('/ground/api/v3/wp/sda', methods=['GET'])
-@decs.trace_errors(logger, 'Waypoint sda GET failed')
-@decs.get_value('start_index', int)
-@decs.get_value('end_index', int)
-def wp_sda(start_index, end_index):
-    path = get_sda_mod().get_sda_suggestions(min(start_index, end_index), max(start_index, end_index))
-    return json.dumps(path)
+# @app.route('/ground/api/v3/wp/sda', methods=['GET'])
+# @decs.trace_errors(logger, 'Waypoint sda GET failed')
+# @decs.get_value('start_index', int)
+# @decs.get_value('end_index', int)
+# def wp_sda(start_index, end_index):
+#     path = get_sda_mod().get_sda_suggestions(min(start_index, end_index), max(start_index, end_index))
+#     return json.dumps(path)
 
 
 # Replace all waypoints with a new list of waypoints

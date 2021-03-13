@@ -1,19 +1,19 @@
-from MAVProxy.modules.server.urls import app
-from MAVProxy.modules.server.data import Data
-from MAVProxy.modules.mavproxy_sda.sda_engine import get_sda_mod
-from MAVProxy.modules.mavproxy_sda.sda_util import Convert
-from MAVProxy.modules.mavproxy_database import get_db_mod
-from MAVProxy.modules.mavproxy_wp import get_wp_mod
-from MAVProxy.modules.mavproxy_obstacle_prediction.obstacle_prediction import get_sda_obst_pred_mod
-import MAVProxy.modules.server.views.decorators as decs
-from MAVProxy.modules.mavproxy_plane_prediction.plane_prediction import get_sda_plane_pred_mod
+from modules.server.urls import app
+from modules.server.data import Data
+from modules.mavproxy_sda.sda_engine import get_sda_mod
+from modules.mavproxy_sda.sda_util import Convert
+from modules.mavproxy_database import get_db_mod
+from modules.mavproxy_wp import get_wp_mod
+from modules.mavproxy_obstacle_prediction.obstacle_prediction import get_sda_obst_pred_mod
+import modules.server.views.decorators as decs
+from modules.mavproxy_plane_prediction.plane_prediction import get_sda_plane_pred_mod
 from traceback import format_exc
 from flask import request
 import json
 
-import MAVProxy.mavproxy_logging
+import mavproxy_logging
 
-logger = MAVProxy.mavproxy_logging.create_logger("sda")
+logger = mavproxy_logging.create_logger("sda")
 
 @app.route('/ground/api/v3/sda_obst_state')
 def get_sda_obst_state():

@@ -30,7 +30,7 @@ else:
     from urllib.request import urlopen as url_open
     from urllib.error import URLError as url_error
 
-from MAVProxy.modules.lib import mp_util
+from modules.lib import mp_util
 
 class TileException(Exception):
     '''tile error class'''
@@ -557,7 +557,7 @@ def mp_icon(filename):
         import pkg_resources
         name = __name__
         if name == "__main__":
-            name = "MAVProxy.modules.mavproxy_map.mp_tile"
+            name = "modules.mavproxy_map.mp_tile"
         stream = pkg_resources.resource_stream(name, "data/%s" % filename).read()
         raw = np.fromstring(stream, dtype=np.uint8)
     except Exception:

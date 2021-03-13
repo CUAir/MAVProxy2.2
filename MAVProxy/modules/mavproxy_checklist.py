@@ -6,8 +6,8 @@ July 2014
 '''
 
 import math, sys, os, time
-from MAVProxy.modules.lib import mp_checklist
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_checklist
+from modules.lib import mp_module
 from pymavlink import mavutil
 
 class ChecklistModule(mp_module.MPModule):

@@ -4,8 +4,8 @@ control EMU ECU system
 
 import time
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_settings
+from modules.lib import mp_module
+from modules.lib import mp_settings
 
 class EMUECUModule(mp_module.MPModule):
 

@@ -12,7 +12,7 @@ class LayoutModule(mp_module.MPModule):
 
     def cmd_layout(self, args):
         '''handle layout command'''
-        from MAVProxy.modules.lib import win_layout
+        from modules.lib import win_layout
         if len(args) < 1:
             print("usage: layout <save|load>")
             return

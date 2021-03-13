@@ -1,17 +1,17 @@
 '''
-MAVProxy sailing dashboard module
+sailing dashboard module
 Rhys Mainwaring
 November 2020
 '''
 
 from pymavlink import mavutil
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import mp_settings
-from MAVProxy.modules.lib.mp_settings import MPSetting
-from MAVProxy.modules.lib.wxsaildash import SailingDashboard
-from MAVProxy.modules.lib.wxsaildash_util import WindReference, SpeedUnit, WindAngleAndSpeed, WaterSpeedAndHeading
+from modules.lib import mp_module
+from modules.lib import mp_util
+from modules.lib import mp_settings
+from modules.lib.mp_settings import MPSetting
+from modules.lib.wxsaildash import SailingDashboard
+from modules.lib.wxsaildash_util import WindReference, SpeedUnit, WindAngleAndSpeed, WaterSpeedAndHeading
 
 import time
 
@@ -135,7 +135,7 @@ class SailModule(mp_module.MPModule):
             - check if the GUI has received a close event
             - periodically send data to the GUI
         '''
-        # tell MAVProxy to unload the module if the GUI is closed
+        # tell to unload the module if the GUI is closed
         if self.sail_dash.close_event.wait(timeout=0.001):
             self.needs_unloading = True
 

@@ -1,13 +1,13 @@
 from flask_socketio import emit
 import waypoints
 import status
-from MAVProxy.modules.server.urls import socketio
-from MAVProxy.modules.server.urls import app
-from MAVProxy.modules.server.data import Data
+from modules.server.urls import socketio
+from modules.server.urls import app
+from modules.server.data import Data
 
-import MAVProxy.mavproxy_logging
+import mavproxy_logging
 
-logger = MAVProxy.mavproxy_logging.create_logger("sockets")
+logger = mavproxy_logging.create_logger("sockets")
 
 '''mode'''
 '''mav_status/calibration'''

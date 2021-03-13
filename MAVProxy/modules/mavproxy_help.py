@@ -1,13 +1,13 @@
 """
-    MAVProxy help/versioning module
+    help/versioning module
 """
 import os, time, platform, re, sys, socket
 from pymavlink import mavwp, mavutil
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_util
+from modules.lib import mp_module
 if mp_util.has_wxpython:
     import wx
-    from MAVProxy.modules.lib.mp_menu import *
+    from modules.lib.mp_menu import *
 
 if sys.version_info.major < 3:
     from urllib2 import Request
@@ -48,7 +48,7 @@ class HelpModule(mp_module.MPModule):
         pypi = xmlrpclib.ServerProxy('https://pypi.python.org/pypi')
         available = None
         try:
-            available = pypi.package_releases('MAVProxy')
+            available = pypi.package_releases(')
         except socket.gaierror:
             pass
             
@@ -70,12 +70,12 @@ class HelpModule(mp_module.MPModule):
         if mp_util.has_wxpython:
             self.menu_added_console = False
             self.menu = MPMenuSubMenu('Help',
-                                  items=[MPMenuItem('MAVProxy website', 'MAVProxy website', '', handler=MPMenuOpenWeblink('https://ardupilot.org/mavproxy/index.html')),
+                                  items=[MPMenuItem('website', 'website', '', handler=MPMenuOpenWeblink('https://ardupilot.org/mavproxy/index.html')),
                                          MPMenuItem('Check for Updates', 'Check for Updates', '', handler=MPMenuChildMessageDialog(title="Updates", message=self.newversion)),
-                                         MPMenuItem('About', 'About', '', handler=MPMenuChildMessageDialog(title="About MAVProxy", message=self.about_string()))])
+                                         MPMenuItem('About', 'About', '', handler=MPMenuChildMessageDialog(title="About , message=self.about_string()))])
 
     def about_string(self):
-        return "MAVProxy Version " + self.version + "\nOS: " + self.host + "\nPython " +  self.pythonversion + "\nWXPython " + self.wxVersion
+        return "Version " + self.version + "\nOS: " + self.host + "\nPython " +  self.pythonversion + "\nWXPython " + self.wxVersion
 
     #version number comparison for update checking
     def mycmp(self, version1, version2):

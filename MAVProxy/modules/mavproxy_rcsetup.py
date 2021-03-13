@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 '''RC min/max setup'''
 
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 class RCSetupModule(mp_module.MPModule):
     def __init__(self, mpstate):

@@ -13,12 +13,12 @@ import time
 import cv2
 import numpy as np
 
-from MAVProxy.modules.mavproxy_map import mp_elevation
-from MAVProxy.modules.mavproxy_map import mp_tile
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import win_layout
-from MAVProxy.modules.lib import multiproc
-from MAVProxy.modules.mavproxy_map.mp_slipmap_util import *
+from modules.mavproxy_map import mp_elevation
+from modules.mavproxy_map import mp_tile
+from modules.lib import mp_util
+from modules.lib import win_layout
+from modules.lib import multiproc
+from modules.mavproxy_map.mp_slipmap_util import *
 
 
 class MPSlipMap():
@@ -74,9 +74,9 @@ class MPSlipMap():
         '''child process - this holds all the GUI elements'''
         mp_util.child_close_fds()
 
-        from MAVProxy.modules.lib import wx_processguard
-        from MAVProxy.modules.lib.wx_loader import wx
-        from MAVProxy.modules.mavproxy_map.mp_slipmap_ui import MPSlipMapFrame
+        from modules.lib import wx_processguard
+        from modules.lib.wx_loader import wx
+        from modules.mavproxy_map.mp_slipmap_ui import MPSlipMapFrame
 
         state = self
 

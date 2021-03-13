@@ -664,6 +664,19 @@ class ParamModule(mp_module.MPModule):
         self.pstate[sysid].fetch_all(self.master)
 
 
+# def init(mpstate, **kwargs):
+#     '''initialise module'''
+#     return ParamModule(mpstate, **kwargs)
+
+instance = None
+def get_param_mod():
+    global instance
+    if (instance is None):
+        raise Exception("ParamModule Not Initialized")
+    return instance
+
 def init(mpstate, **kwargs):
     '''initialise module'''
-    return ParamModule(mpstate, **kwargs)
+    global instance
+    instance = ParamModule(mpstate, **kwargs)
+    return instance

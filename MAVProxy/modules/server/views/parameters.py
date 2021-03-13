@@ -1,14 +1,14 @@
 import json
 
-import MAVProxy.mavproxy_logging
-import MAVProxy.modules.server.views.decorators as decs
-from MAVProxy.modules.server.urls import app
-from MAVProxy.modules.server.data import Data
-from MAVProxy.modules.mavproxy_param import get_param_mod
-import MAVProxy.modules.server.views.schemas as schemas
+import mavproxy_logging
+import modules.server.views.decorators as decs
+from modules.server.urls import app
+from modules.server.data import Data
+from modules.mavproxy_param import get_param_mod
+import modules.server.views.schemas as schemas
 
 
-logger = MAVProxy.mavproxy_logging.create_logger("Parameters")
+logger = mavproxy_logging.create_logger("Parameters")
 
 
 @app.route('/ground/api/v3/params')

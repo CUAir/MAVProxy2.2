@@ -14,7 +14,7 @@ It is highly desirable that teams provide:
 '''
 
 import sys, os, serial
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 class NMEAModule(mp_module.MPModule):
     def __init__(self, mpstate):

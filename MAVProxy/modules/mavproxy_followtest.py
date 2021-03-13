@@ -6,13 +6,13 @@
 '''
 
 import sys, os, time, math
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import mp_settings
-from MAVProxy.modules.mavproxy_map import mp_slipmap
+from modules.lib import mp_module
+from modules.lib import mp_util
+from modules.lib import mp_settings
+from modules.mavproxy_map import mp_slipmap
 from pymavlink import mavutil
 if mp_util.has_wxpython:
-    from MAVProxy.modules.lib.mp_menu import *
+    from modules.lib.mp_menu import *
 
 class FollowTestModule(mp_module.MPModule):
     def __init__(self, mpstate):

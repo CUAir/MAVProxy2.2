@@ -21,9 +21,9 @@ from pymavlink import mavutil
 import errno
 import sys
 
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 import time
-from MAVProxy.modules.lib import mp_settings
+from modules.lib import mp_settings
 
 
 class dataflash_logger(mp_module.MPModule):

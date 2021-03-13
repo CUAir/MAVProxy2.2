@@ -195,8 +195,8 @@ class ADSBModule(mp_module.MPModule):
                 # if not then add it
                 self.threat_vehicles[id] = ADSBVehicle(id=id, state=m.to_dict())
                 for mp in self.module_matching('map*'):
-                    from MAVProxy.modules.lib import mp_menu
-                    from MAVProxy.modules.mavproxy_map import mp_slipmap
+                    from modules.lib import mp_menu
+                    from modules.mavproxy_map import mp_slipmap
                     self.threat_vehicles[id].menu_item = mp_menu.MPMenuItem(name=id, returnkey=None)
 
                     threat_radius = get_threat_radius(m)

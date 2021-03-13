@@ -6,7 +6,7 @@ To use this module connect to a Solo with a GoPro installed on the gimbal.
 
 import time, os
 
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 from pymavlink import mavutil
 
 class GoProModule(mp_module.MPModule):

@@ -3,19 +3,19 @@ import pickle
 import json
 
 from flask import jsonify, request
-from views_utils import json_serial
+from .views_utils import json_serial
 
-import MAVProxy.modules.mavproxy_interop.interop as interop
-import MAVProxy.mavproxy_logging
+import modules.mavproxy_interop.interop as interop
+import mavproxy_logging
 
-from MAVProxy.modules.server.urls import app
-from MAVProxy.modules.server.data import Data
-from MAVProxy.modules.mavproxy_database import get_db_mod as db
-import MAVProxy.modules.server.views.decorators as decs
+from modules.server.urls import app
+from modules.server.data import Data
+from modules.mavproxy_database import get_db_mod as db
+import modules.server.views.decorators as decs
 
 get_interop = interop.get_instance
 
-logger = MAVProxy.mavproxy_logging.create_logger("interop_api")
+logger = mavproxy_logging.create_logger("interop_api")
 
 
 # Returns all available interop information

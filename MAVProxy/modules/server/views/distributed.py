@@ -1,15 +1,15 @@
-import MAVProxy.mavproxy_logging
-from MAVProxy.modules.server.urls import app
-from MAVProxy.modules.mavproxy_distributed import get_distributed_mod
-from MAVProxy.modules.mavproxy_coverage.coverage_engine import get_coverage_mod
-from MAVProxy.modules.mavproxy_gimbal import get_gimbal_mod
+import mavproxy_logging
+from modules.server.urls import app
+from modules.mavproxy_distributed import get_distributed_mod
+from modules.mavproxy_coverage.coverage_engine import get_coverage_mod
+from modules.mavproxy_gimbal import get_gimbal_mod
 
-import MAVProxy.modules.server.views.decorators as decs
+import modules.server.views.decorators as decs
 import flask
 from flask import request
 import json
 
-logger = MAVProxy.mavproxy_logging.create_logger("distributed")
+logger = mavproxy_logging.create_logger("distributed")
 
 
 @app.route('/ground/api/v3/distributed', methods=['POST'])

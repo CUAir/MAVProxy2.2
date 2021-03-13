@@ -1,15 +1,15 @@
-from MAVProxy.modules.server.urls import app
-from MAVProxy.modules.mavproxy_mode import get_mode_mod
-from MAVProxy.modules.mavproxy_arm import get_arm_mod
-from MAVProxy.modules.mavproxy_misc import get_misc_mod
-from MAVProxy.modules.server.data import Data
-import MAVProxy.modules.server.views.decorators as decs
+from modules.server.urls import app
+from modules.mavproxy_mode import get_mode_mod
+from modules.mavproxy_arm import get_arm_mod
+from modules.mavproxy_misc import get_misc_mod
+from modules.server.data import Data
+import modules.server.views.decorators as decs
 from flask import request
 import json
-import MAVProxy.modules.server.mapcache as mapcache
-import MAVProxy.mavproxy_logging
+import modules.server.mapcache as mapcache
+import mavproxy_logging
 
-logger = MAVProxy.mavproxy_logging.create_logger("extras")
+logger = mavproxy_logging.create_logger("extras")
 
 
 @app.route('/ground/api/v3/cachemaps', methods=['POST'])

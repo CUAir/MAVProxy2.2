@@ -1,5 +1,5 @@
 """
-    MAVProxy rally module
+    rally module
 """
 
 from pymavlink import mavwp

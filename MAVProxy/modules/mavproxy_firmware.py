@@ -12,9 +12,9 @@ import threading
 import re
 
 from pymavlink import mavutil, mavparm
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import multiproc
+from modules.lib import mp_util
+from modules.lib import mp_module
+from modules.lib import multiproc
 
 class FirmwareModule(mp_module.MPModule):
 
@@ -299,7 +299,7 @@ fw download releasetype=OFFICIAL frame=quad platform=PX4-v2
                 print("fw: Manifest (%s) is old; consider 'fw manifest download'" % (manifest_path))
             manifest = self.manifest_parse(manifest_path)
             if self.semver_major(manifest["format-version"]) != 1:
-                print("fw: Manifest (%s) has major version %d; MAVProxy only understands version 1" % (manifest_path,manifest["format-version"]))
+                print("fw: Manifest (%s) has major version %d; only understands version 1" % (manifest_path,manifest["format-version"]))
                 continue
             self.manifests.append(manifest)
 

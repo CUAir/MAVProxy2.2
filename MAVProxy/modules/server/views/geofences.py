@@ -1,12 +1,12 @@
-from MAVProxy.modules.server.urls import app
-from MAVProxy.modules.mavproxy_fence import get_fence_mod
+from modules.server.urls import app
+from modules.mavproxy_fence import get_fence_mod
 from flask import request
-from MAVProxy.modules.server.data import Data
-import MAVProxy.modules.server.views.decorators as decs
+from modules.server.data import Data
+import modules.server.views.decorators as decs
 
-import MAVProxy.mavproxy_logging
+import mavproxy_logging
 
-logger = MAVProxy.mavproxy_logging.create_logger("geofences")
+logger = mavproxy_logging.create_logger("geofences")
 
 
 # format [{'lat':lat, 'lon':lon}, {'lat':lat, 'lon',lon}...}]

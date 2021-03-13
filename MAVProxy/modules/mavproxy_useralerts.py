@@ -19,8 +19,8 @@ else:
     from urllib.request import urlopen
     from urllib.error import URLError
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_settings
+from modules.lib import mp_module
+from modules.lib import mp_settings
 
 class UserAlertsModule(mp_module.MPModule):
     def __init__(self, mpstate):

@@ -9,12 +9,12 @@ June 2012
 '''
 
 import sys, os, time
-from MAVProxy.modules.lib import mp_settings
-from MAVProxy.modules import mavproxy_map
+from modules.lib import mp_settings
+from modules import mavproxy_map
 from pymavlink import mavutil
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.mavproxy_param import ParamState
+from modules.lib import mp_module
+from modules.mavproxy_param import ParamState
 
 # this should be in mavutil.py
 mode_mapping_antenna = {

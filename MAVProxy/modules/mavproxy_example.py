@@ -3,7 +3,7 @@
 Example Module
 Peter Barker, September 2016
 
-This module simply serves as a starting point for your own MAVProxy module.
+This module simply serves as a starting point for your own module.
 
 1. copy this module sidewise (e.g. "cp mavproxy_example.py mavproxy_coolfeature.py"
 2. replace all instances of "example" with whatever your module should be called
@@ -19,9 +19,9 @@ from pymavlink import mavutil
 import errno
 import time
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import mp_settings
+from modules.lib import mp_module
+from modules.lib import mp_util
+from modules.lib import mp_settings
 
 
 class example(mp_module.MPModule):

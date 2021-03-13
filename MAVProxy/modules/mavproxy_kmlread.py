@@ -9,14 +9,14 @@ Released under the GNU GPL version 3 or later
 import time, math, random
 from pymavlink import mavutil, mavwp
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib.mp_settings import MPSetting
-from MAVProxy.modules.mavproxy_map import mp_slipmap
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import kmlread
+from modules.lib import mp_module
+from modules.lib.mp_settings import MPSetting
+from modules.mavproxy_map import mp_slipmap
+from modules.lib import mp_util
+from modules.lib import kmlread
 
 if mp_util.has_wxpython:
-    from MAVProxy.modules.lib.mp_menu import *
+    from modules.lib.mp_menu import *
 
 class KmlReadModule(mp_module.MPModule):
     def __init__(self, mpstate):

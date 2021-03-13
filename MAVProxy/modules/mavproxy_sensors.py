@@ -4,7 +4,7 @@
 import time, math
 from pymavlink import mavutil
 
-from MAVProxy.modules.lib import mp_module
+from modules.lib import mp_module
 
 
 def angle_diff(angle1, angle2):
@@ -39,7 +39,7 @@ class SensorsModule(mp_module.MPModule):
         self.reports['altitude'] = sensors_report()
         self.reports['speed'] = sensors_report()
 
-        from MAVProxy.modules.lib.mp_settings import MPSetting
+        from modules.lib.mp_settings import MPSetting
         self.settings.append(MPSetting('speedreporting', bool, False, 'Speed Reporting', tab='Sensors'))
 
         if 'GPS_RAW_INT' in self.status.msgs:

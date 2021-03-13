@@ -10,9 +10,9 @@ Simple "msg" command sends statustext
 from pymavlink import mavutil
 import time
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_util
-from MAVProxy.modules.lib import mp_settings
+from modules.lib import mp_module
+from modules.lib import mp_util
+from modules.lib import mp_settings
 
 
 class msg(mp_module.MPModule):

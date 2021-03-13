@@ -6,9 +6,9 @@ import math
 import threading
 import time
 
-from MAVProxy.modules.lib import mp_module
-from MAVProxy.modules.lib import mp_settings
-from MAVProxy.modules.lib import LowPassFilter2p
+from modules.lib import mp_module
+from modules.lib import mp_settings
+from modules.lib import LowPassFilter2p
 from pymavlink.rotmat import Vector3
 from pymavlink import mavutil
 from pymavlink import mavextra

@@ -14,9 +14,9 @@ import cv2
 import numpy as np
 import warnings
 
-from MAVProxy.modules.mavproxy_map import mp_elevation
-from MAVProxy.modules.mavproxy_map import mp_tile
-from MAVProxy.modules.lib import mp_util
+from modules.mavproxy_map import mp_elevation
+from modules.mavproxy_map import mp_tile
+from modules.lib import mp_util
 
 def image_shape(img):
     '''handle different image formats, returning (width,height) tuple'''
@@ -646,7 +646,7 @@ class SlipInfoImage(SlipInformation):
     def draw(self, parent, box):
         '''redraw the image'''
         import wx
-        from MAVProxy.modules.lib import mp_widgets
+        from modules.lib import mp_widgets
         if self.imgpanel is None:
             self.imgpanel = mp_widgets.ImagePanel(parent, self.img())
             box.Add(self.imgpanel, flag=wx.LEFT, border=0)

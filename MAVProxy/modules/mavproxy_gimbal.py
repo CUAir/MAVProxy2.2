@@ -213,7 +213,16 @@ class GimbalModule(mp_module.MPModule):
                                                         (view_lat,view_lon),
                                                         icon, layer='GimbalView', rotation=0, follow=False))
 
+instance = None
+def get_gimbal_mod():
+    global instance
+    if (instance is None):
+        raise Exception("GimbalModule Not Initialized")
+    return instance
 
 def init(mpstate):
     '''initialise module'''
-    return GimbalModule(mpstate)
+    # return GimbalModule(mpstate)
+    global instance
+    instance = GimbalModule(mpstate)
+    return instance

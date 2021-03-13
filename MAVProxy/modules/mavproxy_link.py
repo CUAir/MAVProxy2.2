@@ -13,7 +13,7 @@ from modules.lib import mp_module
 from modules.lib import mp_util
 
 if mp_util.has_wxpython:
-    from MAVProxy.modules.lib.mp_menu import *
+    from modules.lib.mp_menu import *
 
 dataPackets = frozenset(['BAD_DATA','LOG_DATA'])
 delayedPackets = frozenset([ 'MISSION_CURRENT', 'SYS_STATUS', 'VFR_HUD',
@@ -422,11 +422,11 @@ class LinkModule(mp_module.MPModule):
             return
 
         if self.settings.target_system != 0 and master.target_system != self.settings.target_system:
-            # keep the pymavlink level target system aligned with the MAVProxy setting
+            # keep the pymavlink level target system aligned with the setting
             master.target_system = self.settings.target_system
 
         if self.settings.target_component != 0 and master.target_component != self.settings.target_component:
-            # keep the pymavlink level target component aligned with the MAVProxy setting
+            # keep the pymavlink level target component aligned with the setting
             print("change target_component %u" % self.settings.target_component)
             master.target_component = self.settings.target_component
             
