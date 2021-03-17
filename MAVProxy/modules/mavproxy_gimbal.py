@@ -153,6 +153,9 @@ class GimbalModule(mp_module.MPModule):
         else:
             print("No GIMBAL_REPORT messages")
 
+    def test_get_rois(self):
+        return []
+
     def mavlink_packet(self, m):
         '''handle an incoming mavlink packet'''
 
