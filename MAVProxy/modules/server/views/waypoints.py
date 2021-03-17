@@ -43,7 +43,7 @@ def wp(wpnum, tm):
             wp['min_dist'] = 0
 
     if wpnum is None:
-        return json.dumps(waypoints)
+        return json.dumps(list(waypoints))
 
     if wpnum >= 0 and wpnum < len(get_db_mod().wps):
         return json.dumps(waypoints[wpnum])
