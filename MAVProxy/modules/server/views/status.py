@@ -140,7 +140,8 @@ def link(tm=None):
             device_name = 'Radio'
         else:
             device_name = 'Unknown'
-        linkdelay = (get_db_mod().status.highest_msec - link.highest_msec) * 1.0e-3
+        # TODO: Figure this out, the key for this dict is (sysid, compid) -> msec
+        linkdelay = (max(get_db_mod().status.highest_msec.values()) - max(link.highest_msec.values())) * 1.0e-3
         packet_loss = 100 if link.linkerror else link.packet_loss()
         links.append({
             "num": n + 1,
