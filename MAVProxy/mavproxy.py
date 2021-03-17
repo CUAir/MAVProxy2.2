@@ -1238,7 +1238,7 @@ if __name__ == '__main__':
     parser.add_option("--profile", action='store_true', help="run the Yappi python profiler")
     parser.add_option("--state-basedir", default=None, help="base directory for logs and aircraft directories")
     parser.add_option("--version", action='store_true', help="version information")
-    parser.add_option("--default-modules", default="log,signing,wp,rally,fence,ftp,param,relay,tuneopt,arm,mode,calibration,rc,auxopt,misc,cmdlong,battery,terrain,output,adsb,layout,interop,database,gimbal,webserver", help='default module list')
+    parser.add_option("--default-modules", default="log,signing,wp,rally,fence,ftp,param,relay,tuneopt,arm,mode,calibration,rc,auxopt,misc,cmdlong,battery,terrain,output,adsb,layout,interop,database,gimbal,mission,webserver", help='default module list')
 
     parser.add_option("--airapi", action='store_true', default=False, help="Activate MAVProxy in AirAPI mode")
 
