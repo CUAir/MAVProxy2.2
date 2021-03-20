@@ -38,7 +38,16 @@ if platform.system() == "Darwin":
                          'opencv-python',
                          'lxml',
                          'future',
-                         'wxPython'])
+                         'wxPython',
+                         'bezier',
+                         'mysql-connector-python',
+                         'google-api-python-client',
+                         'threading',
+                         'flask',
+                         'geopy',
+                         'termcolor',
+                         'jsonschema'
+                         ])
 
 if platform.system() == "Windows" and sys.version_info >= (3, 0):
     # on MacOS we can have a more complete requirements list
