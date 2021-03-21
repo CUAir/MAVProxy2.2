@@ -323,6 +323,16 @@ class FenceModule(mp_module.MPModule):
             self.module('map').remove_menu(self.menu)
         super(FenceModule, self).unload()
 
+instance = None
+def get_fence_mod():
+    if instance is None:
+        raise Exception("Fence instance not yet initialized")
+    return instance
+
 def init(mpstate):
     '''initialise module'''
-    return FenceModule(mpstate)
+    # return FenceModule(mpstate)
+
+    global instance
+    instance = FenceModule(mpstate)
+    return instance

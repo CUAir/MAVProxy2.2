@@ -73,7 +73,7 @@ def rc_start():
     try:
         token = request.headers.get('token')
     except:
-        print "A"
+        print ("A")
         return "Error: wrong headers", 400
     if token != Data.password:
         return "Error: Invalid token", 403

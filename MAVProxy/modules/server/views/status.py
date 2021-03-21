@@ -141,14 +141,15 @@ def link(tm=None):
         else:
             device_name = 'Unknown'
         # TODO: Figure this out, the key for this dict is (sysid, compid) -> msec
-        linkdelay = (max(get_db_mod().status.highest_msec.values()) - max(link.highest_msec.values())) * 1.0e-3
+        # linkdelay = (max(get_db_mod().status.highest_msec.values()) - max(link.highest_msec.values())) * 1.0e-3
         packet_loss = 100 if link.linkerror else link.packet_loss()
         links.append({
             "num": n + 1,
             "alive": not link.linkerror,
             "packet_loss": packet_loss,
             "num_lost": link.mav_loss,
-            "link_delay": linkdelay,
+            # "link_delay": linkdelay,
+            "link_delay": 0,
             "device": device,
             "device_name": device_name,
         })

@@ -214,7 +214,18 @@ class ArmModule(mp_module.MPModule):
                     if v <= 1300:
                         self.say("ICE Disabled")
 
+instance = None
+def get_arm_mod():
+    if instance is None:
+        raise Exception("Arm instance not yet initialized")
+    return instance
 
 def init(mpstate):
     '''initialise module'''
-    return ArmModule(mpstate)
+    # return ArmModule(mpstate)
+
+    global instance
+    instance = ArmModule(mpstate)
+    return instance
+
+    

@@ -76,6 +76,17 @@ class ModeModule(mp_module.MPModule):
                                            int(latlon[1]*1.0e7),
                                            altitude)
 
+
+instance = None
+def get_mode_mod():
+    if instance is None:
+        raise Exception("Mode instance not yet initialized")
+    return instance
+
 def init(mpstate):
     '''initialise module'''
-    return ModeModule(mpstate)
+    # return ModeModule(mpstate)
+
+    global instance
+    instance = ModeModule(mpstate)
+    return instance

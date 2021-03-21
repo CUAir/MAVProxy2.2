@@ -383,7 +383,6 @@ def get_instance():
 
 def init(mpstate):
     '''initialize module'''
-    print("here")
     global instance
     instance = Interop(mpstate)
     return instance

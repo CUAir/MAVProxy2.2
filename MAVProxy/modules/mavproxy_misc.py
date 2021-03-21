@@ -464,6 +464,16 @@ class MiscModule(mp_module.MPModule):
             if r.event.trigger():
                 self.mpstate.functions.process_stdin(r.cmd, immediate=True)
 
+instance = None
+def get_misc_mod():
+    if instance is None:
+        raise Exception("Misc instance not yet initialized")
+    return instance
+
 def init(mpstate):
     '''initialise module'''
-    return MiscModule(mpstate)
+    # return ModeModule(mpstate)
+
+    global instance
+    instance = MiscModule(mpstate)
+    return instance

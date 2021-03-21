@@ -25,15 +25,15 @@ if not mpstate.airapi:
     from .views import interop_api
     from .views import waypoints
     from .views import parameters
-    # from .views import geofences
-    # from .views import extras
-    # from .views import calibration
-    # from .views import distributed
-    # from .views import sda
-    # from .views import coverage
-    # from .views import spot_coverage
-    # from .views import path_planning
-    # from .views import simulated_coverage
+    from .views import geofences
+    from .views import extras
+    from .views import calibration
+    from .views import distributed
+    from .views import sda
+    from .views import coverage
+    from .views import spot_coverage
+    from .views import path_planning
+    from .views import simulated_coverage
 
 class Urls(object):
 

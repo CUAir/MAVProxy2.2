@@ -155,5 +155,5 @@ def wp_splines():
 @app.route('/ground/api/v3/wp/refresh', methods=['PUT'])
 @decs.trace_errors(logger, 'Refresh waypoints failed')
 def wp_refresh():
-    get_wp_mod().wp_load()
+    get_wp_mod().fetch()
     return json.dumps(True)
