@@ -1005,6 +1005,57 @@ class WPModule(mp_module.MPModule):
             self.wp_op = "fetch"
         self.master.waypoint_request_list_send()
 
+    # wp (non-do jump): {'command': command, 'lat': lat, 'lon': lon, 'alt': alt, 'current': current, }
+    # wp (do jump): {'command': mavutil.mavlink.MAV_CMD_DO_JUMP, lat': sequence number, 'lon': loop counter}
+    def _create_wp(self, wp):
+        try:
+            if wp['command'] != mavutil.mavlink.MAV_CMD_DO_JUMP:
+                p = mavutil.mavlink.MAVLink_mission_item_message(
+                    self.wploader.target_system,
+                    self.wploader.target_component,
+                    0,
+                    mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT,
+                    wp['command'],
+                    wp['current'], 
+                    1, 
+                    wp['sda'], 
+                    0, 0, 0,
+                    wp['lat'], wp['lon'], wp['alt'])
+            else:
+                p = mavutil.mavlink.MAVLink_mission_item_message(
+                    self.wploader.target_system, self.wploader.target_component, 0, frame,
+                    wp['command'],  # command
+                    0,             # current
+                    1,             # autocontinue
+                    wp['lat'],     # param1 (index),
+                    wp['lon'],     # param2 (loop counter),
+                    0,     # param3,
+                    0,     # param4,
+                    0,     # param5,
+                    0,     # param6,
+                    0)     # param7,
+            return p
+        except KeyError as e:
+            err = "_create_wp missing field: {}".format(e)
+            logger.error(err)
+            raise ValueError(err)
+
+    # send list of waypoints
+    # wp (non-do jump): {'command': command, 'lat': lat, 'lon': lon, 'alt': alt, 'current': current, }
+    # wp (do jump): {'command': mavutil.mavlink.MAV_CMD_DO_JUMP, lat': sequence number, 'lon': loop counter}
+    # raises ValueError if field is missing
+    # use index=-1 to append to end of list
+    def wp_send_list(self, wp_list):
+        self.wploader.target_system = self.target_system
+        self.wploader.target_component = self.target_component
+        self.wploader.clear()
+        for wp in wp_list:
+            p = self._create_wp(wp)
+            self.wploader.add(p)
+        self.wploader.reindex()
+        self.send_all_waypoints()
+        self.wploader.expected_count = len(wp_list)
+
 instance = None
 def get_wp_mod():
     global instance

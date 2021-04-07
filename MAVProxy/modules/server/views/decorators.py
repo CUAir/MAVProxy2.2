@@ -33,7 +33,7 @@ def require_headers(header_dict):
     def decorator(func):
         @wraps(func)
         def decorated_function(*args, **kwargs):
-            for key, value in header_dict.iteritems():
+            for key, value in header_dict.items():
                 if key not in request.headers:
                     return "Error: wrong headers. missins: '{}'".format(key), 403
                 if request.headers.get(key) != value:

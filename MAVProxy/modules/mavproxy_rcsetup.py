@@ -115,6 +115,16 @@ class RCSetupModule(mp_module.MPModule):
     def print_cal_usage(self):
         print("Usage rccal <start|done>")
 
+instance = None
+def get_rcsetup_mod():
+    if instance is None:
+        raise Exception("RC Setup instance not yet initialized")
+    return instance
+
 def init(mpstate):
     '''initialise module'''
-    return RCSetupModule(mpstate)
+    # return RCSetupModule(mpstate)
+
+    global instance
+    instance = RCSetupModule(mpstate)
+    return instance

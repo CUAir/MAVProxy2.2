@@ -1,0 +1,36 @@
+{
+	"id" : 1,
+	"name" : "TEST GEOFENCE",
+	"algorithms": [
+		{
+			"id" : 3,
+			"name" : "Potential Flow",
+			"type" : 1,
+			"params" : {
+				"factor" : 150,
+				"max_angle": 45,
+				"radius_for_check" : 50,
+				"prune" : false,
+				"buf": 5
+			}
+		}
+	],
+	"geofence" : [[-100, -100], 
+				  [-100,  160], 
+				  [ 160,  160], 
+				  [ 160, -100]],
+
+	"obstacles" : [[70,50,5],
+                  [100,40,20],
+                  [40,100,30],
+                  [120,100,30]],
+
+	"start" : [70.0,0.0],
+	"end" : [150.0,150.0],
+
+	"spline_params" : {
+		"velocity" : 20,
+		"cp2" : 1,
+		"cp3" : 2
+	}
+}

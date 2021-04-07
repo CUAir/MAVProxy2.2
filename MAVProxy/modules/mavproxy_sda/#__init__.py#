@@ -1,0 +1,4 @@
+# Allow imports
+import sda_engine
+
+init = sda_engine.init

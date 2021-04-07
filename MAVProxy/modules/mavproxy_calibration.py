@@ -221,6 +221,16 @@ class CalibrationModule(mp_module.MPModule):
             self.print_magcal_usage()
             return
 
+instance = None
+def get_cali_mod():
+    if instance is None:
+        raise Exception("Calibration instance not yet initialized")
+    return instance
+
 def init(mpstate):
     '''initialise module'''
-    return CalibrationModule(mpstate)
+    # return CalibrationModule(mpstate)
+
+    global instance
+    instance = CalibrationModule(mpstate)
+    return instance

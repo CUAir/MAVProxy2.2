@@ -7,7 +7,7 @@ def extend_with_default(validator_class):
     validate_properties = validator_class.VALIDATORS["properties"]
 
     def set_defaults(validator, properties, instance, schema):
-        for property, subschema in properties.iteritems():
+        for property, subschema in properties.items():
             if "default" in subschema:
                 if type(instance) == list:
                     for x in instance:
