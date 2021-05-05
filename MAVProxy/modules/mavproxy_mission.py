@@ -219,7 +219,7 @@ class MissionModule(mp_module.MPModule):
         return self.min_wp_dists
 
     def reset_min_dists(self):
-        self.min_wp_dists = [sys.maxint] * len(self.db.wps)
+        self.min_wp_dists = [sys.maxsize] * len(self.db.wps)
 
 
 instance = None

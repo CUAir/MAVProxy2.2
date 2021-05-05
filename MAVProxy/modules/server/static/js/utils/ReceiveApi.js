@@ -352,14 +352,16 @@ function getPriorityRegions(time) {
 function getRoi(time) {
   const data = time == undefined ? null : { tm: time };
   $.get({ url: api + 'gimbal/roi', data: data }).done(data => {
-    //console.log(data);
-    var dict = data;
-    var re = dict.replace(/Infinity/g, 1);
-    //console.log(re);
+    if (data !== 'Error: Server is not active') {
+      // console.log(data);
+      var dict = data;
+      var re = dict.replace(/Infinity/g, 1);
+      //console.log(re);
 
-    //}
-    const roi = JSON.parse(re);
-    TargetImgActionCreator.receiveRoi(roi);
+      //}
+      const roi = JSON.parse(re);
+      TargetImgActionCreator.receiveRoi(roi);
+    }
   });
 
 }

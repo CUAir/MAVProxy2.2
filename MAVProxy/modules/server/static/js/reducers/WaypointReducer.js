@@ -490,6 +490,7 @@ function delete_waypoint(selected_row, selected_sda, waypoints, sda_waypoints, s
 }
 
 function send_all_helper(waypoints) {
+  console.log("helper", waypoints)
   SendApi.sendAllWaypoints(waypoints);
   return waypoints.filter(wp => !wp.isTemp);
 }

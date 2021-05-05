@@ -46,10 +46,10 @@ def update_gimbal_roi_target():
     ret = get_gimbal_mod().update_curr_roi()
     return json.dumps(ret)
 
-
 @app.route(base_url + '/roi', methods=['GET'])
 @decs.trace_errors(logger, 'failed to update current gps roi target')
 def test_get_rois():
+    # logger.error(get_gimbal_mod().test_get_rois())
     return get_gimbal_mod().test_get_rois()
 
 @app.route(base_url + '/idle', methods=['POST'])

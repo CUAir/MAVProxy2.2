@@ -7,6 +7,9 @@ from modules.lib import mp_module
 from modules.lib import mp_util
 if mp_util.has_wxpython:
     from modules.lib.mp_menu import *
+import mavproxy_logging
+
+logger = mavproxy_logging.create_logger("waypoint")
 
 class WPModule(mp_module.MPModule):
     def __init__(self, mpstate):
@@ -299,6 +302,7 @@ class WPModule(mp_module.MPModule):
 
     def send_all_waypoints(self):
         '''send all waypoints to vehicle'''
+        print("send here", self.wploader.count())
         self.master.waypoint_clear_all_send()
         if self.wploader.count() == 0:
             return
@@ -1040,6 +1044,27 @@ class WPModule(mp_module.MPModule):
             logger.error(err)
             raise ValueError(err)
 
+    # Add waypoint to list and send all
+    # wp (non-do jump): {'command': command, 'lat': lat, 'lon': lon, 'alt': alt, 'current': current, }
+    # wp (do jump): {'command': mavutil.mavlink.MAV_CMD_DO_JUMP, lat': sequence number, 'lon': loop counter}
+    # raises ValueError if field is missing
+    # use index=-1 to append to end of list
+    def wp_insert(self, wp, index):
+        self.wploader.target_system = self.target_system
+        self.wploader.target_component = self.target_component
+        p = self._create_wp(wp)
+        if index == -1 or index == len(self.wploader.wpoints):
+            self.wploader.add(p)
+        elif index > 0 and index < len(self.wploader.wpoints):
+            self.wploader.wpoints.insert(index, p)
+        else:
+            err = "wp_insert: invalid wp index: {}".format(index)
+            logger.error(err)
+            raise ValueError(err)
+        self.wploader.reindex()
+        self.wploader.expected_count = len(self.wploader.wpoints)
+        self.send_all_waypoints()
+
     # send list of waypoints
     # wp (non-do jump): {'command': command, 'lat': lat, 'lon': lon, 'alt': alt, 'current': current, }
     # wp (do jump): {'command': mavutil.mavlink.MAV_CMD_DO_JUMP, lat': sequence number, 'lon': loop counter}
@@ -1055,6 +1080,51 @@ class WPModule(mp_module.MPModule):
         self.wploader.reindex()
         self.send_all_waypoints()
         self.wploader.expected_count = len(wp_list)
+
+    # remove waypoint at index wpnum and send all
+    def wp_remove(self, wpnum):
+        logger.info("expected_count " + str(getattr(self.wploader, 'expected_count', 0)))
+        wp = self.wploader.wp(wpnum)
+        self.wploader.remove(wp)
+        self.send_all_waypoints()
+        self.wploader.expected_count -= 1
+        self.wploader.expected_count = max(self.wploader.expected_count, 1) # There is always at least one waypoint
+        logger.info("expected_count " + str(getattr(self.wploader, 'expected_count', 0)))
+
+    # update waypoint and index wp
+    # wp (non-do jump): {'command': command, 'lat': lat, 'lon': lon, 'alt': alt, 'current': current}
+    # wp (do jump): {'command': mavutil.mavlink.MAV_CMD_DO_JUMP, lat': sequence number, 'lon': loop counter}
+    # raises ValueError if field is missing
+    # CAUTION: THIS FUNCTION DOES NOT SEND ALL WAYPOINTS
+    def wp_update(self, wp, index):
+        if index < 0 or index >= len(self.wploader.wpoints):
+            err = "wp_update: bad index {}".format(index)
+            logger.error(err)
+            raise ValueError(err)
+
+        self.wploader.target_system = self.target_system
+        self.wploader.target_component = self.target_component
+
+        p = self._create_wp(wp)
+
+        self.loading_waypoints = True
+        self.loading_waypoint_lasttime = time.time()
+        self.master.mav.mission_write_partial_list_send(self.target_system,
+                                                        self.target_component, index, index)
+        self.wploader.set(p, index)
+        self.wploader.reindex()
+
+    def wp_set_current(self, seq):
+        try:
+            self.wploader.target_system = self.target_system
+            self.wploader.target_component = self.target_component
+            self.master.waypoint_set_current_send(seq)
+        except:
+            logger.error(traceback.format_exc())
+
+    def wp_load(self):
+        self.wp_op = "list"
+        self.master.waypoint_request_list_send()
 
 instance = None
 def get_wp_mod():

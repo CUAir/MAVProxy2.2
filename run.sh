@@ -105,7 +105,7 @@ else
   echo $OUT_ARG
   if [ -z "$OUT_ARG" ] ; then # if out_arg has not been set manually
     echo "Forwarding info to docker host"
-    OUT_ARG="--out=udp:mavproxy_container:14550"
+    OUT_ARG="--out=udp:host.docker.internal:14555"
   fi
 fi
 
@@ -123,17 +123,18 @@ if [ "$SITL" = true ] ; then
 
     if [ "$LEGACY_SITL" = true ] ; then
       echo "Starting Legacy SITL docker"
-      docker run -itd --rm --name sitl_container --network=host cuairautopilot/private_repo:sitl_image -C $AIRAPI_ARG $OUT_ARG $SITL_LOC
+      echo  docker run -itd --rm --name sitl_container -p 5760:5760 -p 14550/udp cuairautopilot/private_repo:sitl_image -C $AIRAPI_ARG $OUT_ARG $SITL_LOC
+      docker run -itd --rm --name sitl_container -p 5760:5760 -p 14550/udp cuairautopilot/private_repo:sitl_image -C $AIRAPI_ARG $OUT_ARG $SITL_LOC
     else
       echo "Starting Project Atlas SITL docker"
-      docker run -itd --rm --name sitl_container --network=host cuairautopilot/private_repo:project_atlas_image -C $AIRAPI_ARG $OUT_ARG $SITL_LOC
+      docker run -itd --rm --name sitl_container cuairautopilot/private_repo:project_atlas_image -C $AIRAPI_ARG $OUT_ARG $SITL_LOC
     fi
 
     echo "Starting new MAVProxy docker"
     # docker run -it --rm --name mavproxy_container -p 8001:8001 --network=my-network --mount type=bind,source=$PWD,target=/root/mavproxy \
     #   -v node-modules-data:/root/mavproxy/MAVProxy/modules/server/static/node_modules/ cuairautopilot/private_repo:mavproxy_image
-
-    python3 MAVProxy/mavproxy.py --sitl=127.0.0.1:5760 --master=127.0.0.1:14550
+    sleep 5
+    python3 MAVProxy/mavproxy.py --master=0.0.0.0:14555
 else
     # connect to DEVICE at BAUDRATE
     if [[ "$DEVICE" == "" ]] ; then

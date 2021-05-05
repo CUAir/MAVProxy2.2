@@ -17,8 +17,8 @@ import { alert } from 'js/utils/ComponentUtils';
  */
 
 const modeDict = {
-  'MANUAL': 0, 'CIRCLE': 1, 'STABILIZE':2, 'TRAINING':3, 'ACRO': 4, 'FBWA': 5,
-  'FBWB': 6, 'CRUISE': 7, 'AUTOTUNE': 8, 'AUTO': 10, 'RTL': 11, 'LOITER': 12, 'GUIDED' :15
+  'MANUAL': 0, 'CIRCLE': 1, 'STABILIZE': 2, 'TRAINING': 3, 'ACRO': 4, 'FBWA': 5,
+  'FBWB': 6, 'CRUISE': 7, 'AUTOTUNE': 8, 'AUTO': 10, 'RTL': 11, 'LOITER': 12, 'GUIDED': 15
 };
 
 function successGenerator(text: string, onSuccess = $.noop) {
@@ -71,7 +71,7 @@ export function sendParameter(parameter: MiniParamType, onSuccess: Function = $.
     headers: tokenObj(),
     success: successfulChange,
     error: failedChange,
-    data: JSON.stringify({pname: parameter.name, value: parseFloat(parameter.value)})
+    data: JSON.stringify({ pname: parameter.name, value: parseFloat(parameter.value) })
   });
 }
 
@@ -100,7 +100,7 @@ export function sendChangeMode(mode: string) {
     headers: tokenObj(),
     success: successGenerator('Mode change succeeded'),
     error: errorGenerator('Mode change Failed'),
-    data: JSON.stringify({mode: mode})
+    data: JSON.stringify({ mode: mode })
   });
 }
 
@@ -112,7 +112,7 @@ export function sendChangeMode(mode: string) {
  * @returns {undefined}
  */
 export function sendModeSwitch(mode: string, onSuccess: Function = $.noop, onFail: Function = $.noop) {
-  return sendParameter({name: 'FLTMODE1', value: modeDict[mode]}, onSuccess, onFail);
+  return sendParameter({ name: 'FLTMODE1', value: modeDict[mode] }, onSuccess, onFail);
 }
 
 /**
@@ -167,7 +167,7 @@ export function setCurrentWP(index: number, onSuccess: Function = $.noop, onFail
     headers: tokenObj(),
     success: successGenerator('Current waypoint changed', onSuccess),
     error: errorGenerator('Changing current waypoint failed', onFail),
-    data: JSON.stringify({current: index})
+    data: JSON.stringify({ current: index })
   });
 }
 
@@ -198,6 +198,7 @@ export function sendWaypoint(wp: WaypointType, index: number, onSuccess: Functio
 }
 
 export function sendAllWaypoints(wps: WaypointType[], onSuccess: Function = $.noop, onFail: Function = $.noop) {
+  console.log(wps)
   $.ajax({
     url: api + 'wp',
     type: 'POST',
@@ -296,15 +297,15 @@ export function pointToOffAxis(enabled: boolean, offAxis: PointType, onSuccess: 
     alert.error('Interop gps not received');
   } else {
     const mode = !enabled ? 'off-axis' : 'fixed';
-    const data = {'mode': mode,'lat': offAxis.lat,'lon': offAxis.lon};
+    const data = { 'mode': mode, 'lat': offAxis.lat, 'lon': offAxis.lon };
     $.ajax({
       type: 'POST',
       url: api + 'distributed/camera/mode',
       contentType: 'application/json',
       data: JSON.stringify(data),
       datatype: 'json',
-      success: successGenerator('Sent ' + mode +' mode to Platform', onSuccess),
-      error: errorGenerator('Failed to send ' + mode +' mode to Platform', onFail)
+      success: successGenerator('Sent ' + mode + ' mode to Platform', onSuccess),
+      error: errorGenerator('Failed to send ' + mode + ' mode to Platform', onFail)
     });
   }
 }
@@ -314,7 +315,7 @@ export function pointToGimbal(enabled: boolean, gimbal_location: PointType, onSu
     if (gimbal_location.lat === 0) {
       alert.error('Gimbal location not set');
     } else {
-      const gps = {'lat': gimbal_location.lat, 'lon': gimbal_location.lon};
+      const gps = { 'lat': gimbal_location.lat, 'lon': gimbal_location.lon };
       $.ajax({
         type: 'POST',
         url: api + 'distributed/gimbal',
@@ -457,8 +458,8 @@ export function sendGeofencePoints(points: PointType[], onSuccess: Function = $.
  * @returns {undefined}
  */
 export function toggleInterop(status: boolean, server_url: string, username: string,
-    password: string, mission_id: string, onSuccess: Function = $.noop, onFail: Function = $.noop) {
-  const data = JSON.stringify({ server_url, username, password, mission_id});
+  password: string, mission_id: string, onSuccess: Function = $.noop, onFail: Function = $.noop) {
+  const data = JSON.stringify({ server_url, username, password, mission_id });
   const headers = tokenObj();
 
   if (status) {
@@ -487,7 +488,7 @@ export function toggleInterop(status: boolean, server_url: string, username: str
 }
 
 export function toggleDistributed(url: string, username: string, password: string,
-    onSuccess: Function = $.noop, onFail: Function = $.noop) {
+  onSuccess: Function = $.noop, onFail: Function = $.noop) {
   const data = JSON.stringify({ url, username: 'Autopilot', password: md5(password) });
   const headers = tokenObj();
 
@@ -553,7 +554,7 @@ export function reboot() {
 */
 export function addLocation(locationdata: Object) {
   $.ajax({
-    url:  api + 'cachemaps',
+    url: api + 'cachemaps',
     type: 'POST',
     data: JSON.stringify(locationdata),
     contentType: 'application/json; charset=utf-8',
@@ -643,7 +644,7 @@ export function simulateCoverage() {
  * @returns {undefined}
  */
 export function sendPointsForPathPlanning(points: PointType[], buf: Number, onSuccess: Function = $.noop, onFail: Function = $.noop) {
-  const data = {'route_wp_indices': points, 'geofence': [], 'buffer': buf};
+  const data = { 'route_wp_indices': points, 'geofence': [], 'buffer': buf };
   $.ajax({
     type: 'POST',
     url: api + 'path_planning',

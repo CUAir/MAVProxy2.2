@@ -61,6 +61,7 @@ def wp_add(wp_or_wplist):
         for waypoint in wp_list:
             waypoint['index'] = -1
         get_wp_mod().wp_send_list(wp_list)
+        print("views/wp", wp_list)
         return 'true', 200
     wp = wp_or_wplist
     print ("wpl length: " + str(len(wp)))

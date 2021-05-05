@@ -197,7 +197,7 @@ class DatabaseModule(mp_module.MPModule):
         def wp2dict(wp):
             return self.WAYPOINT(wp.command, wp.current, float(wp.param1), float(wp.param2), float(wp.param3), float(wp.param4), float(wp.x), float(wp.y), float(wp.z), wp.seq)._asdict()
 
-        return map(wp2dict, wplist)
+        return list(map(wp2dict, wplist))
 
     def get_wps(self):
         return self.mavwp_to_wps(self.wps)
@@ -223,6 +223,7 @@ class DatabaseModule(mp_module.MPModule):
             self.wps = list(wploader.wpoints)
 
             data = (datetime.now(), json.dumps(self.mavwp_to_wps(self.wps)))
+            print("data", data)
             query = """
                     INSERT INTO
                       waypoints (time, json)
